@@ -18,6 +18,9 @@ importers:
       '@gabortorma/antfu-eslint-config':
         specifier: ^1.5.1
         version: 1.5.1(@typescript-eslint/utils@8.5.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.6)(jiti@1.21.6)(magicast@0.3.5)(rollup@4.21.3)(typescript@5.6.2)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))(vitest@2.1.1(@types/node@22.5.5)(terser@5.32.0))
+      '@gabortorma/mwm':
+        specifier: ^0.8.0
+        version: link:../..
       '@nuxt/devtools':
         specifier: ^1.4.2
         version: 1.4.2(rollup@4.21.3)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))(vue@3.5.6(typescript@5.6.2))
@@ -9926,7 +9929,7 @@ snapshots:
       ky: 1.7.2
       registry-auth-token: 5.0.2
       registry-url: 6.0.1
-      semver: 7.6.3
+      semver: 7.6.2
 
   package-manager-detector@0.2.0: {}
 
@@ -10474,7 +10477,7 @@ snapshots:
 
   semver-diff@4.0.0:
     dependencies:
-      semver: 7.6.3
+      semver: 7.6.2
 
   semver@5.7.2: {}
 
@@ -11036,7 +11039,7 @@ snapshots:
       is-npm: 6.0.0
       latest-version: 9.0.0
       pupa: 3.1.0
-      semver: 7.6.3
+      semver: 7.6.2
       semver-diff: 4.0.0
       xdg-basedir: 5.1.0
 
