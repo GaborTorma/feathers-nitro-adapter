@@ -42,7 +42,7 @@ export default defineNitroConfig({
 
 ## Release
 
-Add your `GITHUB_TOKEN` to `.env` file or use web based login,
+Add your `GITHUB_TOKEN` to `.env` file or use web based login:
 
 ```bash
 GITHUB_TOKEN=your_token
