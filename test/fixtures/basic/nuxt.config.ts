@@ -3,8 +3,5 @@ export default defineNuxtConfig({
     plugins: [
       '../../../../src/index.ts',
     ],
-    experimental: {
-      websocket: true,
-    },
   },
 })
