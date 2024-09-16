@@ -17,7 +17,7 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Fix lockfile
         run: npx pnpm@latest install --fix-lockfile
@@ -36,7 +36,8 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+
       - name: Install dependencies
         run: npx pnpm@latest install
 
