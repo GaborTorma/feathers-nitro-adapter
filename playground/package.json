@@ -8,8 +8,5 @@
     "generate": "nuxi generate",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  },
-  "dependencies": {
-    "nuxt": "^3.13.2"
   }
 }
