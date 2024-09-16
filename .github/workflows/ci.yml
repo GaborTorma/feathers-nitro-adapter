@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Fix lockfile
+        run: npx nypm@latest --fix-lockfile
+
       - name: Install dependencies
         run: npx nypm@latest i
 
@@ -34,12 +37,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - name: Install dependencies
         run: npx nypm@latest i
-
-      - name: Playground prepare
-        run: npm run dev:prepare
 
       - name: Test
         run: npm run test
