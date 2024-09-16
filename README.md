@@ -40,6 +40,14 @@ export default defineNitroConfig({
 })
 ```
 
+## Release
+
+Add your `GITHUB_TOKEN` to `.env` file or use web based login,
+
+```bash
+GITHUB_TOKEN=your_token
+```
+
 <!-- Badges -->
 
 [npm-version-src]: https://img.shields.io/npm/v/@gabortorma/mwm-nitro-plugin-template/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
