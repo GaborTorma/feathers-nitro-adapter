@@ -7,8 +7,7 @@
 
 _description_
 
-- [✨ Release Notes](/CHANGELOG.md)
-- [🏀 Online playground](https://stackblitz.com/github/gabortorma/mwm-nitro-plugin-template?file=playground%2Fapp.vue)
+[🏀 Online playground](https://stackblitz.com/github/gabortorma/mwm-nitro-plugin-template?file=playground%2Fapp.vue)
 
 ## Install
 
