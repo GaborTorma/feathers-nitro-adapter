@@ -16,7 +16,7 @@ importers:
         version: 2.9.7(magicast@0.3.5)
     devDependencies:
       '@gabortorma/mwm':
-        specifier: ^0.8.6
+        specifier: ^0.8.8
         version: link:../..
       '@gabortorma/nuxt-eslint-layer':
         specifier: ^0.1.0
