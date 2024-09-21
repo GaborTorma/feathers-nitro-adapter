@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "generate": "nuxi generate",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "generate": "nuxi generate"
   }
 }
