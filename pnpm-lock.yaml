@@ -16,8 +16,8 @@ importers:
         version: 2.9.7(magicast@0.3.5)
     devDependencies:
       '@gabortorma/mwm':
-        specifier: ^0.8.4
-        version: 0.8.4(magicast@0.3.5)(typescript@5.6.2)
+        specifier: ^0.8.5
+        version: link:../..
       '@gabortorma/nuxt-eslint-layer':
         specifier: ^0.0.3
         version: 0.0.3(@typescript-eslint/utils@8.6.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.7)(jiti@1.21.6)(magicast@0.3.5)(nuxt@3.13.2(@parcel/watcher@2.4.1)(@types/node@22.5.5)(eslint@9.11.0(jiti@1.21.6))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.5)(terser@5.33.0))(vue-tsc@2.1.6(typescript@5.6.2)))(rollup@4.22.4)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.5)(terser@5.33.0))(vitest@2.1.1(@types/node@22.5.5)(terser@5.33.0))(vue@3.5.7(typescript@5.6.2))
@@ -54,8 +54,6 @@ importers:
       vue-tsc:
         specifier: ^2.1.6
         version: 2.1.6(typescript@5.6.2)
-
-  playground: {}
 
 packages:
 
@@ -913,10 +911,6 @@ packages:
   '@gabortorma/antfu-eslint-config@1.7.4':
     resolution: {integrity: sha512-v8KHk6wlplY1eLGqnt9IRo5pZYKFAWH/ofuknhdmhItZut91XVyUyo0jG69SBwXWDTgHD0AtVWn8yEPbrXgtWg==}
 
-  '@gabortorma/mwm@0.8.4':
-    resolution: {integrity: sha512-iCZB1WAYMpVYVWkrolbxXLpypzZSVWtpo+TVshADzO27lubxC/S6o3t3MjY2l/roRDhBTWba/Z+c45CeSabilA==}
-    hasBin: true
-
   '@gabortorma/nuxt-eslint-layer@0.0.3':
     resolution: {integrity: sha512-7SpkswhMJe59B8TH0TPrvY0ZP9A7FritjJ7oIN3+/8P1pHDxVaQSEcjWDSMkEBIVb5C4bbX5flG51YdwwosH1w==}
     peerDependencies:
@@ -1118,20 +1112,8 @@ packages:
     resolution: {integrity: sha512-tY/msAuJo6ARbK6SPIxZrPBms3xPbfwBrulZe0Wtr/DIY9lje2HeV1uoebShn6mx7SjCHif6EjMvoREj+gZ+SA==}
     engines: {node: '>= 18'}
 
-  '@octokit/auth-token@5.1.1':
-    resolution: {integrity: sha512-rh3G3wDO8J9wSjfI436JUKzHIxq8NaiL0tVeB2aXmG6p/9859aUOAjA9pmSPNGGZxfwmaJ9ozOJImuNVJdpvbA==}
-    engines: {node: '>= 18'}
-
   '@octokit/core@5.2.0':
     resolution: {integrity: sha512-1LFfa/qnMQvEOAdzlQymH0ulepxbxnCYAKJZfMci/5XJyIHWgEYnDmgnKakbTh7CH2tFQ5O60oYDvns4i9RAIg==}
-    engines: {node: '>= 18'}
-
-  '@octokit/core@6.1.2':
-    resolution: {integrity: sha512-hEb7Ma4cGJGEUNOAVmyfdB/3WirWMg5hDuNFVejGEDFqupeOysLc2sG6HJxY2etBp5YQu5Wtxwi020jS9xlUwg==}
-    engines: {node: '>= 18'}
-
-  '@octokit/endpoint@10.1.1':
-    resolution: {integrity: sha512-JYjh5rMOwXMJyUpj028cu0Gbp7qe/ihxfJMLc8VZBMMqSwLgOxDI1911gV4Enl1QSavAQNJcwmwBF9M0VvLh6Q==}
     engines: {node: '>= 18'}
 
   '@octokit/endpoint@9.0.5':
@@ -1140,10 +1122,6 @@ packages:
 
   '@octokit/graphql@7.1.0':
     resolution: {integrity: sha512-r+oZUH7aMFui1ypZnAvZmn0KSqAUgE1/tUXIWaqUCa1758ts/Jio84GZuzsvUkme98kv0WFY8//n0J1Z+vsIsQ==}
-    engines: {node: '>= 18'}
-
-  '@octokit/graphql@8.1.1':
-    resolution: {integrity: sha512-ukiRmuHTi6ebQx/HFRCXKbDlOh/7xEV6QUXaE7MJEKGNAncGI/STSbOkl12qVXZrfZdpXctx5O9X1AIaebiDBg==}
     engines: {node: '>= 18'}
 
   '@octokit/openapi-types@22.2.0':
@@ -1155,23 +1133,11 @@ packages:
     peerDependencies:
       '@octokit/core': '5'
 
-  '@octokit/plugin-paginate-rest@11.3.3':
-    resolution: {integrity: sha512-o4WRoOJZlKqEEgj+i9CpcmnByvtzoUYC6I8PD2SA95M+BJ2x8h7oLcVOg9qcowWXBOdcTRsMZiwvM3EyLm9AfA==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@octokit/core': '>=6'
-
   '@octokit/plugin-request-log@4.0.1':
     resolution: {integrity: sha512-GihNqNpGHorUrO7Qa9JbAl0dbLnqJVrV8OXe2Zm5/Y4wFkZQDfTreBzVmiRfJVfE4mClXdihHnbpyyO9FSX4HA==}
     engines: {node: '>= 18'}
     peerDependencies:
       '@octokit/core': '5'
-
-  '@octokit/plugin-request-log@5.3.1':
-    resolution: {integrity: sha512-n/lNeCtq+9ofhC15xzmJCNKP2BWTv8Ih2TTy+jatNCCq/gQP/V7rK3fjIfuz0pDWDALO/o/4QY4hyOF6TQQFUw==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@octokit/core': '>=6'
 
   '@octokit/plugin-rest-endpoint-methods@13.2.2':
     resolution: {integrity: sha512-EI7kXWidkt3Xlok5uN43suK99VWqc8OaIMktY9d9+RNKl69juoTyxmLoWPIZgJYzi41qj/9zU7G/ljnNOJ5AFA==}
@@ -1179,34 +1145,16 @@ packages:
     peerDependencies:
       '@octokit/core': ^5
 
-  '@octokit/plugin-rest-endpoint-methods@13.2.4':
-    resolution: {integrity: sha512-gusyAVgTrPiuXOdfqOySMDztQHv6928PQ3E4dqVGEtOvRXAKRbJR4b1zQyniIT9waqaWk/UDaoJ2dyPr7Bk7Iw==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@octokit/core': '>=6'
-
   '@octokit/request-error@5.1.0':
     resolution: {integrity: sha512-GETXfE05J0+7H2STzekpKObFe765O5dlAKUTLNGeH+x47z7JjXHfsHKo5z21D/o/IOZTUEI6nyWyR+bZVP/n5Q==}
-    engines: {node: '>= 18'}
-
-  '@octokit/request-error@6.1.4':
-    resolution: {integrity: sha512-VpAhIUxwhWZQImo/dWAN/NpPqqojR6PSLgLYAituLM6U+ddx9hCioFGwBr5Mi+oi5CLeJkcAs3gJ0PYYzU6wUg==}
     engines: {node: '>= 18'}
 
   '@octokit/request@8.4.0':
     resolution: {integrity: sha512-9Bb014e+m2TgBeEJGEbdplMVWwPmL1FPtggHQRkV+WVsMggPtEkLKPlcVYm/o8xKLkpJ7B+6N8WfQMtDLX2Dpw==}
     engines: {node: '>= 18'}
 
-  '@octokit/request@9.1.3':
-    resolution: {integrity: sha512-V+TFhu5fdF3K58rs1pGUJIDH5RZLbZm5BI+MNF+6o/ssFNT4vWlCh/tVpF3NxGtP15HUxTTMUbsG5llAuU2CZA==}
-    engines: {node: '>= 18'}
-
   '@octokit/rest@20.1.1':
     resolution: {integrity: sha512-MB4AYDsM5jhIHro/dq4ix1iWTLGToIGk6cWF5L6vanFaMble5jTX/UBQyiv05HsWnwUtY8JrfHy2LWfKwihqMw==}
-    engines: {node: '>= 18'}
-
-  '@octokit/rest@21.0.2':
-    resolution: {integrity: sha512-+CiLisCoyWmYicH25y1cDfCrv41kRSvTq6pPWtRroRJzhsCZWZyCqGyI8foJT5LmScADSwRAnr/xo+eewL04wQ==}
     engines: {node: '>= 18'}
 
   '@octokit/types@13.5.0':
@@ -1771,9 +1719,6 @@ packages:
   '@vue/shared@3.5.7':
     resolution: {integrity: sha512-NBE1PBIvzIedxIc2RZiKXvGbJkrZ2/hLf3h8GlS4/sP9xcXEZMFWOazFkNd6aGeUCMaproe5MHVYB3/4AW9q9g==}
 
-  '@yarnpkg/lockfile@1.1.0':
-    resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
-
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
 
@@ -1865,10 +1810,6 @@ packages:
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
-  array-union@2.1.0:
-    resolution: {integrity: sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==}
-    engines: {node: '>=8'}
-
   assertion-error@2.0.1:
     resolution: {integrity: sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==}
     engines: {node: '>=12'}
@@ -1919,9 +1860,6 @@ packages:
 
   before-after-hook@2.2.3:
     resolution: {integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==}
-
-  before-after-hook@3.0.2:
-    resolution: {integrity: sha512-Nik3Sc0ncrMK4UUdXQmAnRtzmNQTAAXmXIopizwZ1W1t8QmfJj+zL4OA2I7XPTPW5z5TDqv4hRo/JzouDJnX3A==}
 
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -2038,9 +1976,6 @@ packages:
     resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
-  change-case@5.4.4:
-    resolution: {integrity: sha512-HRQyTk2/YPEkt9TnUPbOpr64Uw3KOicFWPVBb+xiHvd6eBx/qPr9xqfBFDT8P2vWsvvz4jbEkfDe71W3VyNu2w==}
-
   character-entities@2.0.2:
     resolution: {integrity: sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==}
 
@@ -2150,9 +2085,6 @@ packages:
 
   commondir@1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
-
-  compare-versions@6.1.1:
-    resolution: {integrity: sha512-4hm4VPpIecmlg59CHXnRDnqGplJFrbLG4aFEl5vl6cK1u76ws3LLvX7ikFnTDl5vo39sjWD6AaDPYodJp/NNHg==}
 
   compatx@0.1.8:
     resolution: {integrity: sha512-jcbsEAR81Bt5s1qOFymBufmCbXCXbk0Ql+K5ouj6gCyx2yHlu6AgmGIi9HxfKixpUDO5bCFJUHQ5uM6ecbTebw==}
@@ -2991,9 +2923,6 @@ packages:
   git-up@7.0.0:
     resolution: {integrity: sha512-ONdIrbBCFusq1Oy0sC71F5azx8bVkvtZtMJAsv+a6lz5YAmbNnLD6HAB4gptHZVLPR8S2/kVN6Gab7lryq5+lQ==}
 
-  git-url-parse@13.1.1:
-    resolution: {integrity: sha512-PCFJyeSSdtnbfhSNRw9Wk96dDCNx+sogTe4YNXeXSJxt7xz5hvXekuRn9JX7m+Mf4OscCu8h+mtAl3+h5Fo8lQ==}
-
   git-url-parse@14.0.0:
     resolution: {integrity: sha512-NnLweV+2A4nCvn4U/m2AoYu0pPKlsmhK9cknG7IMwsjFY1S2jxM+mAhsDxyxfCIGfGaD+dozsyX4b6vkYc83yQ==}
 
@@ -3040,10 +2969,6 @@ packages:
   globals@15.9.0:
     resolution: {integrity: sha512-SmSKyLLKFbSr6rptvP8izbyxJL4ILwqO9Jg23UA0sDlGlu58V59D1//I3vlc0KJphVdUR7vMjHIplYnzBxorQA==}
     engines: {node: '>=18'}
-
-  globby@11.1.0:
-    resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
-    engines: {node: '>=10'}
 
   globby@13.2.2:
     resolution: {integrity: sha512-Y1zNGV+pzQdh7H39l9zgB4PJqjRNqydvdYCDG4HFXM4XuvSaQQlEc91IU1yALL8gUTDomgBAfz3XJdmUS+oo0w==}
@@ -3360,9 +3285,6 @@ packages:
   jiti@1.21.6:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
-
-  jju@1.4.0:
-    resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -4167,11 +4089,6 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
-  pnpm@9.11.0:
-    resolution: {integrity: sha512-CiA/+u1aP2MkLNBkyPtYkjZsED4ygHkxj3gGLyTqjJ1QvGpHqjVnyr79gk0XDnj6J0XtHxaxMuFkNhRrdojxmw==}
-    engines: {node: '>=18.12'}
-    hasBin: true
-
   postcss-calc@10.0.2:
     resolution: {integrity: sha512-DT/Wwm6fCKgpYVI7ZEWuPJ4az8hiEHtCUeYjZXqU7Ou4QqYh1Df2yCQ7Ca6N7xqKPFkxN3fhf+u9KSoOCJNAjg==}
     engines: {node: ^18.12 || ^20.9 || >=22.0}
@@ -4494,11 +4411,6 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || ^22.0.0}
     hasBin: true
 
-  replace-in-file@8.1.0:
-    resolution: {integrity: sha512-ySYfKDH6uFVC4Wt6DcZ2UX0UMCqE7xhWGVqje/15WFVwHxnel1gdZjV8nOW9Nms6h/yQE2MWyeIToeqFLZkp4w==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
@@ -4683,10 +4595,6 @@ packages:
 
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
-
-  slash@3.0.0:
-    resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
-    engines: {node: '>=8'}
 
   slash@4.0.0:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
@@ -5052,9 +4960,6 @@ packages:
   universal-user-agent@6.0.1:
     resolution: {integrity: sha512-yCzhz6FN2wU1NiiQRogkTQszlQSlpWaw8SvVegAc+bDxbzHgh1vX8uIe8OYyMH6DwH+sdTJsgMl36+mSMdRJIQ==}
 
-  universal-user-agent@7.0.2:
-    resolution: {integrity: sha512-0JCqzSKnStlRRQfCdowvqy3cy0Dvtlb8xecj/H8JFZuCze4rwjPZQOgvFvn0Ws/usCHQFGpyr+pB9adaGwXn4Q==}
-
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
@@ -5395,9 +5300,6 @@ packages:
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
-
-  workspace-tools@0.36.4:
-    resolution: {integrity: sha512-v0UFVvw9BjHtRu2Dau5PEJKkuG8u4jPlpXZQWjSz9XgbSutpPURqtO2P0hp3cVmQVATh8lkMFCewFgJuDnyC/w==}
 
   wrap-ansi@6.2.0:
     resolution: {integrity: sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==}
@@ -6193,26 +6095,6 @@ snapshots:
       - vitest
       - webpack-sources
 
-  '@gabortorma/mwm@0.8.4(magicast@0.3.5)(typescript@5.6.2)':
-    dependencies:
-      '@octokit/rest': 21.0.2
-      c12: 1.11.2(magicast@0.3.5)
-      change-case: 5.4.4
-      citty: 0.1.6
-      compare-versions: 6.1.1
-      consola: 3.2.3
-      defu: 6.1.4
-      pkg-types: 1.2.0
-      pnpm: 9.11.0
-      release-it: 17.6.0(typescript@5.6.2)
-      replace-in-file: 8.1.0
-      simple-git: 3.27.0
-      workspace-tools: 0.36.4
-    transitivePeerDependencies:
-      - magicast
-      - supports-color
-      - typescript
-
   '@gabortorma/nuxt-eslint-layer@0.0.3(@typescript-eslint/utils@8.6.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.7)(jiti@1.21.6)(magicast@0.3.5)(nuxt@3.13.2(@parcel/watcher@2.4.1)(@types/node@22.5.5)(eslint@9.11.0(jiti@1.21.6))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.22.4)(terser@5.33.0)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.5)(terser@5.33.0))(vue-tsc@2.1.6(typescript@5.6.2)))(rollup@4.22.4)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.5)(terser@5.33.0))(vitest@2.1.1(@types/node@22.5.5)(terser@5.33.0))(vue@3.5.7(typescript@5.6.2))':
     dependencies:
       '@gabortorma/antfu-eslint-config': 1.7.4(@typescript-eslint/utils@8.6.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.7)(jiti@1.21.6)(magicast@0.3.5)(rollup@4.22.4)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.5)(terser@5.33.0))(vitest@2.1.1(@types/node@22.5.5)(terser@5.33.0))
@@ -6660,8 +6542,6 @@ snapshots:
 
   '@octokit/auth-token@4.0.0': {}
 
-  '@octokit/auth-token@5.1.1': {}
-
   '@octokit/core@5.2.0':
     dependencies:
       '@octokit/auth-token': 4.0.0
@@ -6671,21 +6551,6 @@ snapshots:
       '@octokit/types': 13.5.0
       before-after-hook: 2.2.3
       universal-user-agent: 6.0.1
-
-  '@octokit/core@6.1.2':
-    dependencies:
-      '@octokit/auth-token': 5.1.1
-      '@octokit/graphql': 8.1.1
-      '@octokit/request': 9.1.3
-      '@octokit/request-error': 6.1.4
-      '@octokit/types': 13.5.0
-      before-after-hook: 3.0.2
-      universal-user-agent: 7.0.2
-
-  '@octokit/endpoint@10.1.1':
-    dependencies:
-      '@octokit/types': 13.5.0
-      universal-user-agent: 7.0.2
 
   '@octokit/endpoint@9.0.5':
     dependencies:
@@ -6698,12 +6563,6 @@ snapshots:
       '@octokit/types': 13.5.0
       universal-user-agent: 6.0.1
 
-  '@octokit/graphql@8.1.1':
-    dependencies:
-      '@octokit/request': 9.1.3
-      '@octokit/types': 13.5.0
-      universal-user-agent: 7.0.2
-
   '@octokit/openapi-types@22.2.0': {}
 
   '@octokit/plugin-paginate-rest@11.3.1(@octokit/core@5.2.0)':
@@ -6711,27 +6570,13 @@ snapshots:
       '@octokit/core': 5.2.0
       '@octokit/types': 13.5.0
 
-  '@octokit/plugin-paginate-rest@11.3.3(@octokit/core@6.1.2)':
-    dependencies:
-      '@octokit/core': 6.1.2
-      '@octokit/types': 13.5.0
-
   '@octokit/plugin-request-log@4.0.1(@octokit/core@5.2.0)':
     dependencies:
       '@octokit/core': 5.2.0
 
-  '@octokit/plugin-request-log@5.3.1(@octokit/core@6.1.2)':
-    dependencies:
-      '@octokit/core': 6.1.2
-
   '@octokit/plugin-rest-endpoint-methods@13.2.2(@octokit/core@5.2.0)':
     dependencies:
       '@octokit/core': 5.2.0
-      '@octokit/types': 13.5.0
-
-  '@octokit/plugin-rest-endpoint-methods@13.2.4(@octokit/core@6.1.2)':
-    dependencies:
-      '@octokit/core': 6.1.2
       '@octokit/types': 13.5.0
 
   '@octokit/request-error@5.1.0':
@@ -6740,10 +6585,6 @@ snapshots:
       deprecation: 2.3.1
       once: 1.4.0
 
-  '@octokit/request-error@6.1.4':
-    dependencies:
-      '@octokit/types': 13.5.0
-
   '@octokit/request@8.4.0':
     dependencies:
       '@octokit/endpoint': 9.0.5
@@ -6751,26 +6592,12 @@ snapshots:
       '@octokit/types': 13.5.0
       universal-user-agent: 6.0.1
 
-  '@octokit/request@9.1.3':
-    dependencies:
-      '@octokit/endpoint': 10.1.1
-      '@octokit/request-error': 6.1.4
-      '@octokit/types': 13.5.0
-      universal-user-agent: 7.0.2
-
   '@octokit/rest@20.1.1':
     dependencies:
       '@octokit/core': 5.2.0
       '@octokit/plugin-paginate-rest': 11.3.1(@octokit/core@5.2.0)
       '@octokit/plugin-request-log': 4.0.1(@octokit/core@5.2.0)
       '@octokit/plugin-rest-endpoint-methods': 13.2.2(@octokit/core@5.2.0)
-
-  '@octokit/rest@21.0.2':
-    dependencies:
-      '@octokit/core': 6.1.2
-      '@octokit/plugin-paginate-rest': 11.3.3(@octokit/core@6.1.2)
-      '@octokit/plugin-request-log': 5.3.1(@octokit/core@6.1.2)
-      '@octokit/plugin-rest-endpoint-methods': 13.2.4(@octokit/core@6.1.2)
 
   '@octokit/types@13.5.0':
     dependencies:
@@ -7434,8 +7261,6 @@ snapshots:
 
   '@vue/shared@3.5.7': {}
 
-  '@yarnpkg/lockfile@1.1.0': {}
-
   abbrev@1.1.1: {}
 
   abort-controller@3.0.0:
@@ -7531,8 +7356,6 @@ snapshots:
 
   argparse@2.0.1: {}
 
-  array-union@2.1.0: {}
-
   assertion-error@2.0.1: {}
 
   ast-kit@1.2.0:
@@ -7579,8 +7402,6 @@ snapshots:
   basic-ftp@5.0.5: {}
 
   before-after-hook@2.2.3: {}
-
-  before-after-hook@3.0.2: {}
 
   binary-extensions@2.3.0: {}
 
@@ -7721,8 +7542,6 @@ snapshots:
 
   chalk@5.3.0: {}
 
-  change-case@5.4.4: {}
-
   character-entities@2.0.2: {}
 
   chardet@0.7.0: {}
@@ -7812,8 +7631,6 @@ snapshots:
   comment-parser@1.4.1: {}
 
   commondir@1.0.1: {}
-
-  compare-versions@6.1.1: {}
 
   compatx@0.1.8: {}
 
@@ -8787,10 +8604,6 @@ snapshots:
       is-ssh: 1.4.0
       parse-url: 8.1.0
 
-  git-url-parse@13.1.1:
-    dependencies:
-      git-up: 7.0.0
-
   git-url-parse@14.0.0:
     dependencies:
       git-up: 7.0.0
@@ -8846,15 +8659,6 @@ snapshots:
   globals@14.0.0: {}
 
   globals@15.9.0: {}
-
-  globby@11.1.0:
-    dependencies:
-      array-union: 2.1.0
-      dir-glob: 3.0.1
-      fast-glob: 3.3.2
-      ignore: 5.3.2
-      merge2: 1.4.1
-      slash: 3.0.0
 
   globby@13.2.2:
     dependencies:
@@ -9169,8 +8973,6 @@ snapshots:
       '@pkgjs/parseargs': 0.11.0
 
   jiti@1.21.6: {}
-
-  jju@1.4.0: {}
 
   js-tokens@4.0.0: {}
 
@@ -10283,8 +10085,6 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  pnpm@9.11.0: {}
-
   postcss-calc@10.0.2(postcss@8.4.47):
     dependencies:
       postcss: 8.4.47
@@ -10632,12 +10432,6 @@ snapshots:
       - supports-color
       - typescript
 
-  replace-in-file@8.1.0:
-    dependencies:
-      chalk: 5.3.0
-      glob: 10.4.5
-      yargs: 17.7.2
-
   require-directory@2.1.1: {}
 
   resolve-alpn@1.2.1: {}
@@ -10833,8 +10627,6 @@ snapshots:
       totalist: 3.0.1
 
   sisteransi@1.0.5: {}
-
-  slash@3.0.0: {}
 
   slash@4.0.0: {}
 
@@ -11220,8 +11012,6 @@ snapshots:
 
   universal-user-agent@6.0.1: {}
 
-  universal-user-agent@7.0.2: {}
-
   universalify@2.0.1: {}
 
   unplugin-vue-router@0.10.8(rollup@4.22.4)(vue-router@4.4.5(vue@3.5.7(typescript@5.6.2)))(vue@3.5.7(typescript@5.6.2)):
@@ -11600,16 +11390,6 @@ snapshots:
       execa: 5.1.1
 
   word-wrap@1.2.5: {}
-
-  workspace-tools@0.36.4:
-    dependencies:
-      '@yarnpkg/lockfile': 1.1.0
-      fast-glob: 3.3.2
-      git-url-parse: 13.1.1
-      globby: 11.1.0
-      jju: 1.4.0
-      js-yaml: 4.1.0
-      micromatch: 4.0.8
 
   wrap-ansi@6.2.0:
     dependencies:
