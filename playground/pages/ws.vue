@@ -1,54 +1,45 @@
-<script>
+<script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-export default {
-  setup() {
-    let ws
-    const message = ref('')
+let ws: WebSocket 
+const message = ref('')
 
-    const initWebSocket = () => {
-      ws = new WebSocket('/_ws')
+function initWebSocket() {
+  ws = new WebSocket('/_ws')
 
-      ws.onopen = () => {
-        console.log('WebSocket connection opened')
-      }
+  ws.onopen = () => {
+    console.log('WebSocket connection opened')
+  }
 
-      ws.onmessage = (event) => {
-        message.value = event.data
-        console.log('Message received:', event.data)
-      }
+  ws.onmessage = (event) => {
+    message.value = event.data
+    console.log('Message received:', event.data)
+  }
 
-      ws.onerror = (error) => {
-        console.error('WebSocket error:', error)
-      }
+  ws.onerror = (error) => {
+    console.error('WebSocket error:', error)
+  }
 
-      ws.onclose = () => {
-        console.log('WebSocket connection closed')
-      }
-    }
-
-    const sendMessage = () => {
-      if (ws && ws.readyState === WebSocket.OPEN) {
-        ws.send('ping')
-      }
-    }
-
-    onMounted(() => {
-      initWebSocket()
-    })
-
-    onBeforeUnmount(() => {
-      if (ws) {
-        ws.close()
-      }
-    })
-
-    return {
-      message,
-      sendMessage,
-    }
-  },
+  ws.onclose = () => {
+    console.log('WebSocket connection closed')
+  }
 }
+
+function sendMessage() {
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    ws.send('ping')
+  }
+}
+
+onMounted(() => {
+  initWebSocket()
+})
+
+onBeforeUnmount(() => {
+  if (ws) {
+    ws.close()
+  }
+})
 </script>
 
 <template>
@@ -62,7 +53,3 @@ export default {
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Add your styles here */
-</style>
