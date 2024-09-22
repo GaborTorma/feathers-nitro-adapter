@@ -31,13 +31,14 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxi prepare playground",
-    "prerelease": "npm run lint && npm run test && npm run prepack",
+    "prerelease": "npm run test:types && npm run lint && npm run test && npm run prepack",
     "release": "dotenv release-it",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
+    "test:types": "vue-tsc --noEmit",
+    "cleanup": "nuxi cleanup && nuxi cleanup playground",
     "prepare": "nuxi prepare && nitro prepare && nuxi prepare playground"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-let ws: WebSocket 
+let ws: WebSocket
 const message = ref('')
 
 function initWebSocket() {
