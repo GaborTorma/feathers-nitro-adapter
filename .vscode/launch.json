@@ -8,19 +8,42 @@
       "type": "chrome",
       "request": "launch",
       "name": "client: chrome",
-      "url": "http://localhost:3000"
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/playground",
+      "userDataDir": false
     },
     {
-      "name": "server: nuxt",
-      "command": "npm run dev",
+      "type": "node-terminal",
       "request": "launch",
-      "type": "node-terminal"
+      "name": "server: nuxt (terminal)",
+      "command": "pnpm dev"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "server: nuxt (debug)",
+      "outputCapture": "std",
+      "program": "${workspaceFolder}/node_modules/nuxi/bin/nuxi.mjs",
+      "args": [
+        "dev",
+        "playground"
+      ]
     }
   ],
   "compounds": [
     {
-      "name": "fullstack: nuxt",
-      "configurations": ["client: chrome", "server: nuxt"]
+      "name": "fullstack: nuxt (terminal)",
+      "configurations": [
+        "client: chrome",
+        "server: nuxt (terminal)"
+      ]
+    },
+    {
+      "name": "fullstack: nuxt (debug)",
+      "configurations": [
+        "client: chrome",
+        "server: nuxt (debug)"
+      ]
     }
   ]
 }
