@@ -31,7 +31,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxi prepare playground",
-    "prerelease": "nr run test:types && nr run lint && nr run test",
+    "prerelease": "nr test:types && nr lint && nr test",
     "release": "dotenv release-it",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
