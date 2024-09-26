@@ -1,0 +1,45 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fix lockfile
+        run: npx pnpm@latest install --fix-lockfile
+
+      - name: Install dependencies
+        run: npx pnpm@latest install
+
+      - name: Lint
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npx pnpm@latest install
+
+      - name: Test
+        run: npm run test
