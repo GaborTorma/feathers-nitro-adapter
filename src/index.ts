@@ -1,52 +1,76 @@
-import type { NitroApp } from 'nitropack'
-import type { IncomingMessage, ServerResponse } from 'node:http'
-import { defineEventHandler, defineWebSocketHandler, fromNodeMiddleware } from 'h3'
+/* eslint-disable ts/no-unsafe-call */
+/* eslint-disable ts/no-unsafe-assignment */
+/* eslint-disable ts/no-unsafe-member-access */
+
+import type { Application } from '@feathersjs/express'
+import type { Server as Engine } from 'engine.io'
+import type { NitroApp, NitroAppPlugin } from 'nitropack'
+import express, { type Application as Express } from 'express'
+import { defineEventHandler, fromNodeMiddleware } from 'h3'
 import { defineNitroPlugin } from 'nitropack/dist/runtime/plugin'
 
-// Declare custom Nitro hook
+export interface FeathersNitroPluginOptions {
+  express?: Express
+  engine?: Engine
+  apiPath?: string
+  socketIoPath?: string
+}
+
+export interface FeathersSetupHookParams {
+  app: Application
+  options?: FeathersNitroPluginOptions
+}
+
 declare module 'nitropack' {
   interface NitroRuntimeHooks {
-    'nitro:myPlugin'(): void
+    'feathers:beforeSetup'(params: FeathersSetupHookParams): void
+    'feathers:afterSetup'(params: FeathersSetupHookParams): void
   }
 }
 
-export default defineNitroPlugin((nitroApp: NitroApp) => {
-  // Call custom Nitro hook
-  void nitroApp.hooks.callHook('nitro:myPlugin')
+export function defineFeathersNitroPlugin(app: Application, options?: FeathersNitroPluginOptions): NitroAppPlugin {
+  const {
+    apiPath = '/api',
+    socketIoPath = '/socket.io',
+  } = options || {}
 
-  // Native h3 handler
-  nitroApp.router.use('/hello', defineEventHandler((_event) => {
-    return 'world'
-  }))
+  // eslint-disable-next-line ts/no-misused-promises
+  return defineNitroPlugin(async (nitroApp: NitroApp) => {
+    await nitroApp.hooks.callHook('feathers:beforeSetup', { app, options })
+    await app.setup()
+    await nitroApp.hooks.callHook('feathers:afterSetup', { app, options })
 
-  // WebSocket (crossws) handler https://nitro.unjs.io/guide/websocket#usage
-  nitroApp.router.use('/_ws', defineWebSocketHandler({
-    open(peer) {
-      console.log('[ws] open', peer)
-    },
+    if (options?.express) {
+      const api = express()
+      api.use(apiPath, options.express)
 
-    message(peer, message) {
-      console.log('[ws] message', peer, message)
-      if (message.text().includes('ping')) {
-        peer.send('pong')
-      }
-    },
+      nitroApp.router.use(`${apiPath}`, fromNodeMiddleware(api))
+      nitroApp.router.use(`${apiPath}/*`, fromNodeMiddleware(api))
+    }
 
-    close(peer, event) {
-      console.log('[ws] close', peer, event)
-    },
+    if (options?.engine) {
+      nitroApp.router.use(socketIoPath, defineEventHandler({
+        handler(event) {
+          // @ts-expect-error type error
+          options.engine?.handleRequest(event.node.req, event.node.res)
+          event._handled = true
+        },
+        websocket: {
+          open(peer) {
+            const nodeContext = peer.ctx.node
+            const req = nodeContext.req
 
-    error(peer, error) {
-      console.log('[ws] error', peer, error)
-    },
-  }))
+            // @ts-expect-error private method
+            engine.prepare(req)
 
-  // Dummy express/node middleware
-  const expressMiddleware = (req: IncomingMessage, res: ServerResponse, next: (err?: Error) => any) => {
-    console.log(`Request Method: ${req.method}, Request URL: ${req.url}`)
-    res.end('Express middleware')
-    next()
-  }
-  // Express middleware
-  nitroApp.router.use('/express', fromNodeMiddleware(expressMiddleware))
-})
+            const rawSocket = nodeContext.req.socket
+            const websocket = nodeContext.ws
+
+            // @ts-expect-error private method
+            engine.onWebSocket(req, rawSocket, websocket)
+          },
+        },
+      }))
+    }
+  })
+}
