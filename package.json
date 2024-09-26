@@ -29,9 +29,8 @@
   ],
   "scripts": {
     "prepack": "unbuild",
-    "dev": "nuxi dev playground",
-    "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxi prepare playground",
+    "dev:nuxt": "pnpm --filter nuxt-app dev",
+    "dev:api": "pnpm --filter feathers-api dev",
     "prerelease": "nr test:types && nr lint && nr test",
     "release": "dotenv release-it",
     "lint": "eslint .",
@@ -39,8 +38,8 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit",
-    "cleanup": "nuxi cleanup && nuxi cleanup playground",
-    "prepare": "nuxi prepare && nitro prepare && nuxi prepare playground"
+    "cleanup": "nuxi cleanup",
+    "prepare": "nuxi prepare && nitro prepare"
   },
   "dependencies": {
     "@feathersjs/express": "^5.0.30",

@@ -15,35 +15,23 @@
     {
       "type": "node-terminal",
       "request": "launch",
-      "name": "server: nuxt (terminal)",
-      "command": "pnpm dev"
+      "name": "server: nuxt",
+      "command": "pnpm dev:nuxt"
     },
     {
-      "type": "node",
+      "type": "node-terminal",
       "request": "launch",
-      "name": "server: nuxt (debug)",
-      "outputCapture": "std",
-      "program": "${workspaceFolder}/node_modules/nuxi/bin/nuxi.mjs",
-      "args": [
-        "dev",
-        "playground"
-      ]
+      "name": "server: api",
+      "command": "pnpm dev:api"
     }
   ],
   "compounds": [
     {
-      "name": "fullstack: nuxt (terminal)",
+      "name": "fullstack: nuxt",
       "configurations": [
         "client: chrome",
-        "server: nuxt (terminal)"
+        "server: nuxt"
       ]
     },
-    {
-      "name": "fullstack: nuxt (debug)",
-      "configurations": [
-        "client: chrome",
-        "server: nuxt (debug)"
-      ]
-    }
   ]
 }

@@ -61,13 +61,13 @@ export function defineFeathersNitroPlugin(app: Application, options?: FeathersNi
             const req = nodeContext.req
 
             // @ts-expect-error private method
-            engine.prepare(req)
+            options.engine?.prepare(req)
 
             const rawSocket = nodeContext.req.socket
             const websocket = nodeContext.ws
 
             // @ts-expect-error private method
-            engine.onWebSocket(req, rawSocket, websocket)
+            options.engine?.onWebSocket(req, rawSocket, websocket)
           },
         },
       }))
