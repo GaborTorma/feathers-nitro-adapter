@@ -1,4 +1,11 @@
 {
+  /* Editor rulers */
+  "editor.rulers": [
+    { "column": 100, "color": "#333" },
+    { "column": 120, "color": "#555" },
+    { "column": 126, "color": "#d44" }
+  ],
+
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnType": false,
