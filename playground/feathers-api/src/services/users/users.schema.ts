@@ -2,7 +2,7 @@ import type { Static } from '@feathersjs/typebox'
 import type { HookContext } from '../../declarations'
 import type { UsersService } from './users.class'
 
-// // For more information about this file see https://dove.feathersjs.com/guides/cli/service.schemas.html
+// For more information about this file see https://dove.feathersjs.com/guides/cli/service.schemas.html
 import { resolve } from '@feathersjs/schema'
 import { getValidator, ObjectIdSchema, querySyntax, Type } from '@feathersjs/typebox'
 import { dataValidator, queryValidator } from '../../validators'

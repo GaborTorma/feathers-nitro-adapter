@@ -1,22 +1,22 @@
 // plugins/1.feathers.ts
 import rest from '@feathersjs/rest-client'
+import socketioClient from '@feathersjs/socketio-client'
 // socket.io imports for the browser
-import socketio from '@feathersjs/socketio-client'
 
 import { createClient } from 'feathers-api/src/client'
 import { createPiniaClient, OFetch } from 'feathers-pinia'
 
 // rest imports for the server
 import { $fetch } from 'ofetch'
-import io from 'socket.io-client'
+import { io } from 'socket.io-client'
 
 /**
  * Creates a Feathers Rest client for the SSR server and a Socket.io client for the browser.
  * Also provides a cookie-storage adapter for JWT SSR using Nuxt APIs.
  */
 export default defineNuxtPlugin(async (nuxt) => {
-  // const host = import.meta.env.VITE_MYAPP_API_URL as string || 'http://localhost:3030'
-  const host = import.meta.env.VITE_MYAPP_API_URL as string || 'http://localhost:3000'
+  // const host = import.meta.env.VITE_MYAPP_API_URL as string || 'http://localhost:3030' // uncomment for independently started feathers-api server
+  const host = import.meta.env.VITE_MYAPP_API_URL as string || 'http://localhost:3000' // uncomment for feathers-api server run by Nuxt
 
   // Store JWT in a cookie for SSR.
   const storageKey = 'feathers-jwt'
@@ -27,13 +27,14 @@ export default defineNuxtPlugin(async (nuxt) => {
     removeItem: () => (jwt.value = null),
   }
 
-  console.log('server', import.meta.server)
   // Use Rest for the SSR Server and socket.io for the browser
   const connection = import.meta.server
     ? rest(`${host}/api`).fetch($fetch, OFetch)
-    : socketio(io(host, { transports: ['websocket'] }))
+    : socketioClient(io(host, { transports: ['websocket'] }))
+  // */
 
-  // const connection = rest(host+'/api').fetch($fetch, OFetch)
+  // const connection = rest(`${host}/api`).fetch($fetch, OFetch) // uncomment for only rest connection
+  // const connection = socketioClient(io(host, { transports: ['websocket'] })) // uncomment for only socket.io connection
 
   // create the feathers client
   const feathersClient = createClient(connection, { storage, storageKey })

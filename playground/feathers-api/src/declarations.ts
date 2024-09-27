@@ -1,6 +1,7 @@
-// For more information about this file see https://dove.feathersjs.com/guides/cli/typescript.html
-import type { Application as FeathersApplication } from '@feathersjs/express'
 import type { HookContext as FeathersHookContext, NextFunction } from '@feathersjs/feathers'
+// For more information about this file see https://dove.feathersjs.com/guides/cli/typescript.html
+import type { Application as FeathersExpressApplication } from '@feathersjs/express'
+import type { Application as FeathersKoaApplication } from '@feathersjs/koa'
 import type { ApplicationConfiguration } from './configuration'
 
 export type { NextFunction }
@@ -12,7 +13,11 @@ export interface Configuration extends ApplicationConfiguration {}
 export interface ServiceTypes {}
 
 // The application instance type that will be used everywhere else
-export type Application = FeathersApplication<ServiceTypes, Configuration>
+export type ExpressApplication = FeathersExpressApplication<ServiceTypes, Configuration>
+export type KoaApplication = FeathersKoaApplication<ServiceTypes, Configuration>
+
+// Select current adapter
+export type Application = KoaApplication
 
 // The context for hook functions - can be typed with a service class
-export type HookContext<S = any> = FeathersHookContext<Application, S>
+export type HookContext<S = any> = FeathersHookContext<ExpressApplication | KoaApplication, S>
