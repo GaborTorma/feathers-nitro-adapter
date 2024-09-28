@@ -23,11 +23,5 @@ export default defineNuxtConfig({
     },
   },
 
-  typescript: {
-    tsConfig: {
-      exclude: ['../../feathers-api'],
-    },
-  },
-
   devtools: { enabled: true },
 })
