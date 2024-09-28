@@ -10,11 +10,7 @@
     "type": "github",
     "url": "git+ssh://git@github.com/GaborTorma/feathers-nitro-adapter.git"
   },
-  "keywords": [
-    "nitro",
-    "nitro-plugin",
-    "template"
-  ],
+  "keywords": ["nuxt", "nitro", "nitro-plugin", "feathers", "feathersjs", "express", "expressjs", "koa", "koajs", "socket.io"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
