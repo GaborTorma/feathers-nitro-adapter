@@ -43,16 +43,11 @@ export default defineNuxtPlugin(async (nuxt) => {
   const api = createPiniaClient(feathersClient, {
     pinia: nuxt.$pinia,
     ssr: !!import.meta.server,
-    idField: '_id',
+    idField: 'id', // use _id for mongoDB
     whitelist: [],
     paramsForServer: [],
     skipGetIfExists: true,
     customSiftOperators: {},
-    services: {
-      messages: {
-        idField: 'id',
-      },
-    },
   })
 
   return { provide: { api } }

@@ -12,7 +12,6 @@ import { logError } from './hooks/log-error'
 import { logger } from './logger'
 /* import { channels } from './channels'
 import { dummy } from './dummy'
-import { mongodb } from './mongodb'
 import { services } from './services/index' */
 
 export const express = _express()
@@ -61,7 +60,6 @@ app.hooks({
 })
 
 /* uncomment to use express adapter
-app.configure(mongodb)
 app.configure(services)
 app.configure(channels)
 app.configure(dummy) */

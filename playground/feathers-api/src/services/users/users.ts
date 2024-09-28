@@ -32,14 +32,26 @@ export function users(app: Application) {
   // Initialize hooks
   app.service(usersPath).hooks({
     around: {
-      all: [schemaHooks.resolveExternal(usersExternalResolver), schemaHooks.resolveResult(usersResolver)],
+      all: [
+        schemaHooks.resolveExternal(usersExternalResolver),
+        schemaHooks.resolveResult(usersResolver),
+      ],
     },
     before: {
-      all: [schemaHooks.validateQuery(usersQueryValidator), schemaHooks.resolveQuery(usersQueryResolver)],
+      all: [
+        schemaHooks.validateQuery(usersQueryValidator),
+        schemaHooks.resolveQuery(usersQueryResolver),
+      ],
       find: [],
       get: [],
-      create: [schemaHooks.validateData(usersDataValidator), schemaHooks.resolveData(usersDataResolver)],
-      patch: [schemaHooks.validateData(usersPatchValidator), schemaHooks.resolveData(usersPatchResolver)],
+      create: [
+        schemaHooks.validateData(usersDataValidator),
+        schemaHooks.resolveData(usersDataResolver),
+      ],
+      patch: [
+        schemaHooks.validateData(usersPatchValidator),
+        schemaHooks.resolveData(usersPatchResolver),
+      ],
       remove: [],
     },
     after: {

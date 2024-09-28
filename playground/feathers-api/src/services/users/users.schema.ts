@@ -4,14 +4,15 @@ import type { UsersService } from './users.class'
 
 // For more information about this file see https://dove.feathersjs.com/guides/cli/service.schemas.html
 import { resolve } from '@feathersjs/schema'
-import { getValidator, ObjectIdSchema, querySyntax, Type } from '@feathersjs/typebox'
+import { getValidator, querySyntax, Type } from '@feathersjs/typebox'
 import { dataValidator, queryValidator } from '../../validators'
 
 // Main data model schema
 export const usersSchema = Type.Object(
   {
-    _id: ObjectIdSchema(),
+    id: Type.Number(),
     userId: Type.String(),
+    // password: Type.Optional(Type.String()),
   },
   { $id: 'Users', additionalProperties: false },
 )
@@ -38,7 +39,7 @@ export const usersPatchValidator = getValidator(usersPatchSchema, dataValidator)
 export const usersPatchResolver = resolve<Users, HookContext<UsersService>>({})
 
 // Schema for allowed query properties
-export const usersQueryProperties = Type.Pick(usersSchema, ['_id', 'userId'])
+export const usersQueryProperties = Type.Pick(usersSchema, ['id', 'userId'])
 export const usersQuerySchema = Type.Intersect(
   [
     querySyntax(usersQueryProperties),

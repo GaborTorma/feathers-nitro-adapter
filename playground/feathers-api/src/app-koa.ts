@@ -12,7 +12,6 @@ import { configurationValidator } from './configuration'
 import { dummy } from './dummy'
 import { logError } from './hooks/log-error'
 
-import { mongodb } from './mongodb'
 import { services } from './services/index'
 
 export const koa = new Koa()
@@ -41,7 +40,6 @@ app.configure(
     io.on('connection', () => console.log('io connection'))
   }),
 )
-app.configure(mongodb)
 app.configure(services)
 app.configure(channels)
 

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     'nuxt-feathers-pinia',
   ],
 
-  ssr: false,
+  ssr: true,
 
   nitro: {
     experimental: {
