@@ -1,4 +1,4 @@
-import { defineFeathersNitroPlugin } from '../../../../../../src'
+import { createFeathersSocketIoAdapterNitroPlugin } from '../../../../../../src/runtime/plugins/socket.io'
 import { app, engine } from '../../../feathers-api/src/app'
 
-export default defineFeathersNitroPlugin(app, { engine })
+export default createFeathersSocketIoAdapterNitroPlugin(app, engine)

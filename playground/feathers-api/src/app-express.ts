@@ -7,13 +7,13 @@ import socketio from '@feathersjs/socketio'
 import { Server as Engine } from 'engine.io'
 
 import _express from 'express'
-import { channels } from './channels'
 import { configurationValidator } from './configuration'
-import { dummy } from './dummy'
 import { logError } from './hooks/log-error'
 import { logger } from './logger'
+/* import { channels } from './channels'
+import { dummy } from './dummy'
 import { mongodb } from './mongodb'
-import { services } from './services/index'
+import { services } from './services/index' */
 
 export const express = _express()
 
@@ -40,9 +40,6 @@ app.configure(
     io.on('connection', () => console.log('io connection'))
   }),
 )
-app.configure(mongodb)
-app.configure(services)
-app.configure(channels)
 
 // Configure a middleware for 404s and the error handler
 app.use(notFound())
@@ -63,6 +60,10 @@ app.hooks({
   teardown: [],
 })
 
-app.configure(dummy)
+/* uncomment to use express adapter
+app.configure(mongodb)
+app.configure(services)
+app.configure(channels)
+app.configure(dummy) */
 
 console.warn('app-express.ts')
