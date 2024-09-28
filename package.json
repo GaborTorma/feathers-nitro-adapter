@@ -10,6 +10,9 @@
     "type": "github",
     "url": "git+ssh://git@github.com/GaborTorma/feathers-nitro-adapter.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "nuxt",
     "nitro",
