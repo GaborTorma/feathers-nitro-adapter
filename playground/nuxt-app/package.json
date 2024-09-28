@@ -20,7 +20,7 @@
     "nuxt-feathers-pinia": "^0.1.0",
     "pinia": "^2.2.2",
     "socket.io-client": "^4.8.0",
-    "vue": "^3.5.9",
+    "vue": "^3.5.10",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {

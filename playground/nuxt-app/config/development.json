@@ -1,3 +1,0 @@
-{
-  "mongodb": "mongodb://admin:9cbdhV7LrXCmuI1cxuErSoBVWuoTviek@172.16.1.99:27017/feathers-pinia-nuxt3-api?authSource=admin&replicaSet=voipReplicaSet"
-}
