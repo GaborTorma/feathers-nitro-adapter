@@ -1,6 +1,6 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/service.html
-
 import type { Application } from '../../declarations'
+import { authenticate } from '@feathersjs/authentication'
 
 import { hooks as schemaHooks } from '@feathersjs/schema'
 
@@ -33,6 +33,7 @@ export function messages(app: Application) {
   app.service(messagesPath).hooks({
     around: {
       all: [
+        authenticate('jwt'),
         schemaHooks.resolveExternal(messagesExternalResolver),
         schemaHooks.resolveResult(messagesResolver),
       ],

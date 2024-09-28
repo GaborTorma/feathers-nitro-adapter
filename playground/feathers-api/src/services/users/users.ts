@@ -1,6 +1,6 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/service.html
-
 import type { Application } from '../../declarations'
+import { authenticate } from '@feathersjs/authentication'
 
 import { hooks as schemaHooks } from '@feathersjs/schema'
 
@@ -36,6 +36,12 @@ export function users(app: Application) {
         schemaHooks.resolveExternal(usersExternalResolver),
         schemaHooks.resolveResult(usersResolver),
       ],
+      find: [authenticate('jwt')],
+      get: [authenticate('jwt')],
+      create: [],
+      update: [authenticate('jwt')],
+      patch: [authenticate('jwt')],
+      remove: [authenticate('jwt')],
     },
     before: {
       all: [

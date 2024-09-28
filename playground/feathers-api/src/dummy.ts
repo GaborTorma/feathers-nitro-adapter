@@ -11,8 +11,8 @@ export function dummy(app: Application) {
         ])
         console.log(messages.length, 'dummy messages created')
         const users = await context.app.service('users').create([
-          { userId: 'test' },
-          { userId: 'admin' },
+          { userId: 'test', password: '12345' },
+          { userId: 'admin', password: 'admin' },
         ])
         console.log(users.length, 'dummy users created')
         await next()

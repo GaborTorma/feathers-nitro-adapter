@@ -4,6 +4,8 @@ import type { Application as FeathersExpressApplication } from '@feathersjs/expr
 import type { Application as FeathersKoaApplication } from '@feathersjs/koa'
 import type { ApplicationConfiguration } from './configuration'
 
+import type { Users } from './services/users/users'
+
 export type { NextFunction }
 
 // The types for app.get(name) and app.set(name)
@@ -21,3 +23,10 @@ export type Application = KoaApplication
 
 // The context for hook functions - can be typed with a service class
 export type HookContext<S = any> = FeathersHookContext<ExpressApplication | KoaApplication, S>
+
+// Add the users as an optional property to all params
+declare module '@feathersjs/feathers' {
+  interface Params {
+    users?: Users
+  }
+}

@@ -7,6 +7,7 @@ import socketio from '@feathersjs/socketio'
 
 import { Server as Engine } from 'engine.io'
 import Koa from 'koa'
+import { authentication } from './authentication'
 import { channels } from './channels'
 import { configurationValidator } from './configuration'
 import { dummy } from './dummy'
@@ -40,6 +41,7 @@ app.configure(
     io.on('connection', () => console.log('io connection'))
   }),
 )
+app.configure(authentication)
 app.configure(services)
 app.configure(channels)
 

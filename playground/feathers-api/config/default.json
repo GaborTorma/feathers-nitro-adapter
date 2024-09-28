@@ -8,5 +8,26 @@
   "paginate": {
     "default": 10,
     "max": 50
+  },
+  "authentication": {
+    "entity": "users",
+    "service": "users",
+    "secret": "N4mNOE1zdfQvaKRW2rWMrTTNweRzFG4R",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "userId",
+      "passwordField": "password"
+    }
   }
 }

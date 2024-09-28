@@ -1,5 +1,5 @@
 import process from 'node:process'
-import { app } from './app-express'
+import { app } from './app-koa'
 import { logger } from './logger'
 
 const port = app.get('port')

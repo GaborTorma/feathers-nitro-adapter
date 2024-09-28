@@ -11,6 +11,7 @@ import { configurationValidator } from './configuration'
 import { logError } from './hooks/log-error'
 import { logger } from './logger'
 /* import { channels } from './channels'
+import { authentication } from './authentication'
 import { dummy } from './dummy'
 import { services } from './services/index' */
 
@@ -60,6 +61,7 @@ app.hooks({
 })
 
 /* uncomment to use express adapter
+app.configure(authentication)
 app.configure(services)
 app.configure(channels)
 app.configure(dummy) */

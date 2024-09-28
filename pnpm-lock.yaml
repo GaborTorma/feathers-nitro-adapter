@@ -90,6 +90,9 @@ importers:
       '@feathersjs/authentication-client':
         specifier: ^5.0.30
         version: 5.0.30(typescript@5.6.2)
+      '@feathersjs/authentication-local':
+        specifier: ^5.0.30
+        version: 5.0.30(typescript@5.6.2)
       '@feathersjs/configuration':
         specifier: ^5.0.30
         version: 5.0.30(typescript@5.6.2)
@@ -1101,6 +1104,10 @@ packages:
 
   '@feathersjs/authentication-client@5.0.30':
     resolution: {integrity: sha512-oO+bXJQoPfqOtLFC+WA3DCr6G1PA7rEHcm5dadH9Ajhqi36lJdWxk38N0de7n2VaodATpDLa+f/av1jvk0dm2w==}
+    engines: {node: '>= 12'}
+
+  '@feathersjs/authentication-local@5.0.30':
+    resolution: {integrity: sha512-o4SuEcU1M1Kdws5CTdmGx7EgWtEsvZR52ZQEPkN5l13JDcoQrSg7YIiTrolN13JE916vo9U9cva2F9A37F1nJA==}
     engines: {node: '>= 12'}
 
   '@feathersjs/authentication@5.0.30':
@@ -2341,6 +2348,9 @@ packages:
   basic-ftp@5.0.5:
     resolution: {integrity: sha512-4Bcg1P8xhUuqcii/S0Z9wiHIrQVPMermM1any+MX5GeGD7faD3/msQUDGLol9wOcz4/jbg/WJnGqoJF6LiBdtg==}
     engines: {node: '>=10.0.0'}
+
+  bcryptjs@2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
 
   before-after-hook@2.2.3:
     resolution: {integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==}
@@ -7302,6 +7312,17 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
+  '@feathersjs/authentication-local@5.0.30(typescript@5.6.2)':
+    dependencies:
+      '@feathersjs/authentication': 5.0.30(typescript@5.6.2)
+      '@feathersjs/commons': 5.0.30
+      '@feathersjs/errors': 5.0.30
+      '@feathersjs/feathers': 5.0.30
+      bcryptjs: 2.4.3
+      lodash: 4.17.21
+    transitivePeerDependencies:
+      - typescript
+
   '@feathersjs/authentication@5.0.30(typescript@5.6.2)':
     dependencies:
       '@feathersjs/commons': 5.0.30
@@ -9078,6 +9099,8 @@ snapshots:
   base64id@2.0.0: {}
 
   basic-ftp@5.0.5: {}
+
+  bcryptjs@2.4.3: {}
 
   before-after-hook@2.2.3: {}
 
