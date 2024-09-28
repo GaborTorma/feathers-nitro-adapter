@@ -10,7 +10,18 @@
     "type": "github",
     "url": "git+ssh://git@github.com/GaborTorma/feathers-nitro-adapter.git"
   },
-  "keywords": ["nuxt", "nitro", "nitro-plugin", "feathers", "feathersjs", "express", "expressjs", "koa", "koajs", "socket.io"],
+  "keywords": [
+    "nuxt",
+    "nitro",
+    "nitro-plugin",
+    "feathers",
+    "feathersjs",
+    "express",
+    "expressjs",
+    "koa",
+    "koajs",
+    "socket.io"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -29,8 +40,8 @@
     "dev:api": "pnpm --filter feathers-api dev",
     "prerelease": "nr test:types && nr lint && nr test",
     "release": "dotenv release-it",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . && nr -r lint",
+    "lint:fix": "eslint . --fix && nr -r lint:fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && nr -r test:types",
@@ -39,6 +50,7 @@
   },
   "dependencies": {
     "@feathersjs/express": "^5.0.30",
+    "@feathersjs/feathers": "^5.0.30",
     "@feathersjs/koa": "^5.0.30",
     "engine.io": "^6.6.1",
     "express": "^4.21.0",
