@@ -6,10 +6,10 @@ import authenticationClient from '@feathersjs/authentication-client'
 
 import { feathers } from '@feathersjs/feathers'
 
-import { messagesClient } from './services/messages/messages.shared'
+import { messageClient } from './services/messages/messages.shared'
 import { userClient } from './services/users/users.shared'
 
-export type { Messages, MessagesData, MessagesPatch, MessagesQuery } from './services/messages/messages.shared'
+export type { Message, MessageData, MessagePatch, MessageQuery } from './services/messages/messages.shared'
 export type { User, UserData, UserPatch, UserQuery } from './services/users/users.shared'
 
 export interface Configuration {
@@ -38,7 +38,7 @@ export function createClient<Configuration = any>(
   client.configure(authenticationClient(authenticationOptions))
   client.set('connection', connection)
 
-  client.configure(messagesClient)
+  client.configure(messageClient)
   client.configure(userClient)
   return client
 }

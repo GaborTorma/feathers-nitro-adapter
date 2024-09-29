@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Messages } from 'feathers-api/src/client'
+import type { Message } from 'feathers-api/src/client'
 
 const { api } = useFeathers()
 
@@ -9,7 +9,7 @@ await api.service('messages').create({ text })
 
 // get messages
 const params = computed(() => ({ query: { $limit: 20 } }))
-const messages = api.service('messages').useFind<Messages>(params, { paginateOn: 'hybrid' })
+const messages = api.service('messages').useFind<Message>(params, { paginateOn: 'hybrid' })
 
 // add message
 const newMessage = ref('')
