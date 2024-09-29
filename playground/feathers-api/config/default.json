@@ -21,7 +21,7 @@
       "header": {
         "typ": "access"
       },
-      "audience": "https://yourdomain.com",
+      "audience": "http://localhost",
       "algorithm": "HS256",
       "expiresIn": "1d"
     },
