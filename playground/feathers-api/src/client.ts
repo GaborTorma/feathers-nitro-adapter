@@ -1,15 +1,16 @@
+// For more information about this file see https://dove.feathersjs.com/guides/cli/client.html
+
 import type { AuthenticationClientOptions } from '@feathersjs/authentication-client'
 import type { Application, TransportConnection } from '@feathersjs/feathers'
-// For more information about this file see https://dove.feathersjs.com/guides/cli/client.html
 import authenticationClient from '@feathersjs/authentication-client'
 
 import { feathers } from '@feathersjs/feathers'
 
 import { messagesClient } from './services/messages/messages.shared'
-import { usersClient } from './services/users/users.shared'
+import { userClient } from './services/users/users.shared'
 
 export type { Messages, MessagesData, MessagesPatch, MessagesQuery } from './services/messages/messages.shared'
-export type { Users, UsersData, UsersPatch, UsersQuery } from './services/users/users.shared'
+export type { User, UserData, UserPatch, UserQuery } from './services/users/users.shared'
 
 export interface Configuration {
   connection: TransportConnection<ServiceTypes>
@@ -38,6 +39,6 @@ export function createClient<Configuration = any>(
   client.set('connection', connection)
 
   client.configure(messagesClient)
-  client.configure(usersClient)
+  client.configure(userClient)
   return client
 }

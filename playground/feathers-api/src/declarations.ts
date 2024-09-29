@@ -1,10 +1,10 @@
-import type { HookContext as FeathersHookContext, NextFunction } from '@feathersjs/feathers'
 // For more information about this file see https://dove.feathersjs.com/guides/cli/typescript.html
+
 import type { Application as FeathersExpressApplication } from '@feathersjs/express'
+import type { HookContext as FeathersHookContext, NextFunction } from '@feathersjs/feathers'
 import type { Application as FeathersKoaApplication } from '@feathersjs/koa'
 import type { ApplicationConfiguration } from './configuration'
-
-import type { Users } from './services/users/users'
+import type { User } from './services/users/users'
 
 export type { NextFunction }
 
@@ -27,6 +27,6 @@ export type HookContext<S = any> = FeathersHookContext<ExpressApplication | KoaA
 // Add the users as an optional property to all params
 declare module '@feathersjs/feathers' {
   interface Params {
-    users?: Users
+    user?: User
   }
 }

@@ -1,69 +1,70 @@
+// For more information about this file see https://dove.feathersjs.com/guides/cli/service.schemas.html
+
 import type { Static } from '@feathersjs/typebox'
 import type { HookContext } from '../../declarations'
-import type { UsersService } from './users.class'
+import type { UserService } from './users.class'
 import { passwordHash } from '@feathersjs/authentication-local'
-
-// For more information about this file see https://dove.feathersjs.com/guides/cli/service.schemas.html
 import { resolve } from '@feathersjs/schema'
 import { getValidator, querySyntax, Type } from '@feathersjs/typebox'
 import { dataValidator, queryValidator } from '../../validators'
 
 // Main data model schema
-export const usersSchema = Type.Object(
+export const userSchema = Type.Object(
   {
     id: Type.Number(),
     userId: Type.String(),
     password: Type.Optional(Type.String()),
   },
-  { $id: 'Users', additionalProperties: false },
+  { $id: 'User', additionalProperties: false },
 )
-export type Users = Static<typeof usersSchema>
-export const usersValidator = getValidator(usersSchema, dataValidator)
-export const usersResolver = resolve<Users, HookContext<UsersService>>({})
+export type User = Static<typeof userSchema>
+export const userValidator = getValidator(userSchema, dataValidator)
+export const userResolver = resolve<User, HookContext<UserService>>({})
 
-export const usersExternalResolver = resolve<Users, HookContext<UsersService>>({
+export const userExternalResolver = resolve<User, HookContext<UserService>>({
   // The password should never be visible externally
   password: async () => undefined,
 })
 
 // Schema for creating new entries
-export const usersDataSchema = Type.Pick(usersSchema, ['userId', 'password'], {
-  $id: 'UsersData',
+export const userDataSchema = Type.Pick(userSchema, ['userId', 'password'], {
+  $id: 'UserData',
 })
-export type UsersData = Static<typeof usersDataSchema>
-export const usersDataValidator = getValidator(usersDataSchema, dataValidator)
-export const usersDataResolver = resolve<Users, HookContext<UsersService>>({
+export type UserData = Static<typeof userDataSchema>
+export const userDataValidator = getValidator(userDataSchema, dataValidator)
+export const userDataResolver = resolve<User, HookContext<UserService>>({
   password: passwordHash({ strategy: 'local' }),
 })
 
 // Schema for updating existing entries
-export const usersPatchSchema = Type.Partial(usersSchema, {
-  $id: 'UsersPatch',
+export const userPatchSchema = Type.Partial(userSchema, {
+  $id: 'UserPatch',
 })
-export type UsersPatch = Static<typeof usersPatchSchema>
-export const usersPatchValidator = getValidator(usersPatchSchema, dataValidator)
-export const usersPatchResolver = resolve<Users, HookContext<UsersService>>({
+export type UserPatch = Static<typeof userPatchSchema>
+export const userPatchValidator = getValidator(userPatchSchema, dataValidator)
+export const userPatchResolver = resolve<User, HookContext<UserService>>({
   password: passwordHash({ strategy: 'local' }),
 })
 
 // Schema for allowed query properties
-export const usersQueryProperties = Type.Pick(usersSchema, ['id', 'userId'])
-export const usersQuerySchema = Type.Intersect(
+export const userQueryProperties = Type.Pick(userSchema, ['id', 'userId'])
+export const userQuerySchema = Type.Intersect(
   [
-    querySyntax(usersQueryProperties),
+    querySyntax(userQueryProperties),
     // Add additional query properties here
     Type.Object({}, { additionalProperties: false }),
   ],
   { additionalProperties: false },
 )
-export type UsersQuery = Static<typeof usersQuerySchema>
-export const usersQueryValidator = getValidator(usersQuerySchema, queryValidator)
-export const usersQueryResolver = resolve<UsersQuery, HookContext<UsersService>>({
+export type UserQuery = Static<typeof userQuerySchema>
+export const userQueryValidator = getValidator(userQuerySchema, queryValidator)
+export const userQueryResolver = resolve<UserQuery, HookContext<UserService>>({
   // If there is a user (e.g. with authentication), they are only allowed to see their own data
   id: async (value, user, context) => {
-    if (context.params.users) {
-      return context.params.users.id
+    if (context.params.user) {
+      return context.params.user.id
     }
+
     return value
   },
 })
