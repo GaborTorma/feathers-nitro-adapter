@@ -3,19 +3,19 @@
 import assert from 'node:assert'
 import { app } from '../../../src/app-koa'
 
-describe('users service', () => {
+describe('messages service', () => {
   it('registered the service', () => {
-    const service = app.service('users')
+    const service = app.service('messages')
 
     assert.ok(service, 'Registered the service')
   })
 
-  it('finds all users', async () => {
-    const users = await app.service('users').find({
+  it('finds all messages', async () => {
+    const messages = await app.service('messages').find({
       paginate: false,
     })
 
-    assert.ok(Array.isArray(users))
-    assert.ok(users.length > 1)
+    assert.ok(Array.isArray(messages))
+    assert.ok(messages.length > 1)
   })
 })

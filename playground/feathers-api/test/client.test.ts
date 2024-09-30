@@ -1,12 +1,11 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/client.test.html
-import assert from 'assert'
-import axios from 'axios'
 
+import type { User, UserData } from '../src/client'
+import assert from 'node:assert'
 import rest from '@feathersjs/rest-client'
-import authenticationClient from '@feathersjs/authentication-client'
+import axios from 'axios'
 import { app } from '../src/app-koa'
 import { createClient } from '../src/client'
-import type { UsersData } from '../src/client'
 
 const port = app.get('port')
 const appUrl = `http://${app.get('host')}:${port}`
@@ -26,26 +25,26 @@ describe('application client tests', () => {
     assert.ok(client)
   })
 
-  it('creates and authenticates a user with email and password', async () => {
-    const userData: UsersData = {
-      email: 'someone@example.com',
-      password: 'supersecret'
+  it('creates and authenticates a user with userId and password', async () => {
+    const userData: UserData = {
+      userId: 'client',
+      password: 'supersecret',
     }
 
     await client.service('users').create(userData)
 
     const { user, accessToken } = await client.authenticate({
       strategy: 'local',
-      ...userData
+      ...userData,
     })
 
     assert.ok(accessToken, 'Created access token for user')
     assert.ok(user, 'Includes user in authentication data')
-    assert.strictEqual(user.password, undefined, 'Password is hidden to clients')
+    assert.strictEqual((user as User).password, undefined, 'Password is hidden to clients')
 
     await client.logout()
 
     // Remove the test user on the server
-    await app.service('users').remove(user.id)
+    await app.service('users').remove((user as User).id)
   })
 })
