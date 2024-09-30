@@ -45,8 +45,8 @@
     "release": "dotenv release-it",
     "lint": "eslint . && nr -r lint",
     "lint:fix": "eslint . --fix && nr -r lint:fix",
-    "test": "vitest run",
-    "test:watch": "vitest watch",
+    "test": "vitest run test/* && nr --filter feathers-api mocha",
+    "test:watch": "vitest watch test/*",
     "test:types": "vue-tsc --noEmit && nr -r test:types",
     "cleanup": "nuxi cleanup",
     "prepare": "nuxi prepare && nitro prepare"
