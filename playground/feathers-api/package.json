@@ -21,11 +21,10 @@
   "feathers": {
     "language": "ts",
     "packager": "pnpm",
-    "database": "mongodb",
     "framework": "express",
     "transports": [
       "rest",
-      "websockets"
+      "websocket"
     ],
     "schema": "typebox"
   },

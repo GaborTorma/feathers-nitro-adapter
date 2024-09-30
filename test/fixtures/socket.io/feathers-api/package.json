@@ -8,7 +8,7 @@
     "framework": "socket.io",
     "transports": [
       "rest",
-      "websockets"
+      "websocket"
     ],
     "schema": "typebox"
   }
