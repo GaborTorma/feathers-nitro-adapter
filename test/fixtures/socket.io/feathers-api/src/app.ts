@@ -17,7 +17,6 @@ app.configure(
     transports: ['websocket'],
   }, (io) => {
     io.bind(engine)
-    io.on('connection', () => console.log('io connection'))
   }),
 )
 app.configure(channels)
