@@ -1,7 +1,7 @@
 import type { ExpressApplication } from './declarations'
 // For more information about this file see https://dove.feathersjs.com/guides/cli/application.html
 import configuration from '@feathersjs/configuration'
-import feathersExpress, { cors, errorHandler, json, notFound, rest, serveStatic, urlencoded } from '@feathersjs/express'
+import feathersExpress, { cors, errorHandler, json, notFound, parseAuthentication, rest, serveStatic, urlencoded } from '@feathersjs/express'
 import { feathers } from '@feathersjs/feathers'
 import socketio from '@feathersjs/socketio'
 import { Server as Engine } from 'engine.io'
@@ -43,6 +43,7 @@ app.configure(
 
 // Configure a middleware for 404s and the error handler
 app.use(notFound())
+app.use(parseAuthentication())
 app.use(errorHandler({ logger }))
 
 // Register hooks that run on all service methods

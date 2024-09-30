@@ -9,7 +9,7 @@ export default defineNuxtRouteMiddleware(async (to, _from) => {
 
   // if user is not logged in, redirect to '/' when not navigating to a public page.
   const publicRoutes = ['/']
-  if (!auth.isAuthenticated) {
+  if (!auth.isAuthenticated || !auth.user) {
     if (!publicRoutes.includes(to.path))
       return navigateTo('/')
   }

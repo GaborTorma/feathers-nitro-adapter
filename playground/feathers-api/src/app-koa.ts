@@ -1,8 +1,9 @@
-import type { KoaApplication } from './declarations'
 // For more information about this file see https://dove.feathersjs.com/guides/cli/application.html
+
+import type { KoaApplication } from './declarations'
 import configuration from '@feathersjs/configuration'
 import { feathers } from '@feathersjs/feathers'
-import { bodyParser, errorHandler, koa as feathersKoa, rest, serveStatic } from '@feathersjs/koa'
+import { bodyParser, errorHandler, koa as feathersKoa, parseAuthentication, rest, serveStatic } from '@feathersjs/koa'
 import socketio from '@feathersjs/socketio'
 
 import { Server as Engine } from 'engine.io'
@@ -27,6 +28,7 @@ app.configure(configuration(configurationValidator))
 // Set up Koa middleware
 app.use(serveStatic(app.get('public')))
 app.use(errorHandler())
+app.use(parseAuthentication())
 app.use(bodyParser())
 
 // Configure transports

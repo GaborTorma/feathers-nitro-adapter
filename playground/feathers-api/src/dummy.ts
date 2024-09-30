@@ -11,10 +11,10 @@ export function dummy(app: Application) {
         ])
         console.log(messages.length, 'dummy messages created')
         const users = await context.app.service('users').create([
+          { userId: 'dummy', password: 'dummy' }, // workaround for this issue: https://github.com/marshallswain/feathers-pinia/pull/176
           { userId: 'test', password: '12345' },
-          { userId: 'admin', password: 'admin' },
         ])
-        console.log(users.length, 'dummy users created')
+        console.log(users.length, 'dummy adn test users created')
         await next()
       },
     ],

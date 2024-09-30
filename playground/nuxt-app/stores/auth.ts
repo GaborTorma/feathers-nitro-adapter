@@ -1,4 +1,3 @@
-// stores/auth.ts
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useAuthStore = defineStore('auth', () => {
