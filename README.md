@@ -15,37 +15,82 @@ Nitro adapter plugin for FeathersJS API
 pnpm install add -D @gabortorma/feathers-nitro-adapter
 ```
 
-## Usage
+## Usage in Nuxt v3
 
-### Nuxt
+Create a new nitro plugin file in `server/plugins` folder:
 
-Add the plugin to your `nuxt.config.js`:
-
-```ts
-export default defineNuxtConfig({
-  nitro: {
-    plugins: ['@gabortorma/feathers-nitro-adapter']
-  }
-})
-```
-
-### Nitro
-
-Add the plugin to your `nitro.config.js`:
+### Express adapter example:
 
 ```ts
-export default defineNitroConfig({
-  plugins: ['@gabortorma/feathers-nitro-adapter']
-})
+// server/plugins/feathers-express.ts
+import { createFeathersExpressAdapterNitroPlugin } from '@gabortorma/feathers-nitro-adapter'
+import { app, express } from 'feathers-api/src/app' // import your feathers app from workspace
+
+export default createFeathersExpressAdapterNitroPlugin(app, express)
 ```
 
-## Release
+You need to create a own express server in your `feathers-api/src/app.ts`:
 
-Add your `GITHUB_TOKEN` to `.env` file or use web based login:
+```ts
+import feathersExpress from '@feathersjs/express'
+import { feathers } from '@feathersjs/feathers'
+import _express from 'express'
 
-```bash
-GITHUB_TOKEN=your_token
+export const express = _express()
+
+export const app: Application = feathersExpress(feathers(), express)
 ```
+
+See [Express fixture](./test/fixtures/express/) in test cases.
+
+### Koa adapter example:
+
+```ts
+// server/plugins/feathers-koa.ts
+import { createFeathersKoaAdapterNitroPlugin } from '@gabortorma/feathers-nitro-adapter'
+import { app } from 'feathers-api/src/app' // import your feathers app from workspace
+
+export default createFeathersKoaAdapterNitroPlugin(app)
+```
+
+See [Koa fixture](./test/fixtures/koa/) in test cases.
+
+### Socket.io adapter example:
+
+```ts
+// server/plugins/feathers-socket.io.ts
+import { createFeathersSocketIoAdapterNitroPlugin } from '@gabortorma/feathers-nitro-adapter'
+import { app, engine } from 'feathers-api/src/app'
+
+export default createFeathersSocketIoAdapterNitroPlugin(app, engine)
+```
+
+You need to create a own engine server in your `feathers-api/src/app.ts`:
+
+```ts
+import type { Application } from './declarations'
+import { feathers } from '@feathersjs/feathers'
+import socketio from '@feathersjs/socketio'
+import { Server as Engine } from 'engine.io'
+
+export const app: Application = feathers()
+
+export const engine = new Engine()
+
+app.configure(
+  socketio({
+    transports: ['websocket'],
+  }, (io) => {
+    io.bind(engine) // You need to bind the engine server
+  }),
+)
+```
+
+See [Socket.io fixture](./test/fixtures/socket.io/) in test cases.
+
+#### More example
+
+You can check the [playground](./playground) folder for complex example with rest and socket.io transport and authentication.
 
 <!-- Badges -->
 
