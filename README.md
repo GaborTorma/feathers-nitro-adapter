@@ -29,7 +29,7 @@ import { app, express } from 'feathers-api/src/app' // import your feathers app 
 export default createFeathersExpressAdapterNitroPlugin(app, express)
 ```
 
-You need to create a own express server in your `feathers-api/src/app.ts`:
+You need to create own express server in your `feathers-api/src/app.ts`:
 
 ```ts
 import feathersExpress from '@feathersjs/express'
@@ -65,7 +65,7 @@ import { app, engine } from 'feathers-api/src/app'
 export default createFeathersSocketIoAdapterNitroPlugin(app, engine)
 ```
 
-You need to create a own engine server in your `feathers-api/src/app.ts`:
+You need to create own engine server in your `feathers-api/src/app.ts`:
 
 ```ts
 import type { Application } from './declarations'
