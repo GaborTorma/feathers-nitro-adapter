@@ -10,7 +10,7 @@ export type { User, UserData, UserPatch, UserQuery }
 
 export interface UserParams extends Params<UserQuery> {}
 
-// By default calls the standard MongoDB adapter service methods but can be customized with your own functionality.
+// By default calls the standard Memory adapter service methods but can be customized with your own functionality.
 export class UserService<ServiceParams extends Params = UserParams> extends MemoryService<
   User,
   UserData
