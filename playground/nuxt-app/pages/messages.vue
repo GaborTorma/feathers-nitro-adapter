@@ -18,9 +18,7 @@ async function addMessage() {
   await api.service('messages').create({ text: newMessage.value })
 }
 
-onMounted(() => {
-  console.log('user:', useAuthStore().user)
-})
+const user = useAuthStore().user
 
 // logout
 function logout() {
@@ -30,17 +28,23 @@ function logout() {
 </script>
 
 <template>
-  <div>
-    <input v-model="newMessage" placeholder="add new message">
-    <button @click="addMessage">
-      Add message {{ newMessage }}
+  <div style="max-width: 300px;">
+    <button style="float:right" @click="logout">
+      Logout
     </button>
-    <p>Total: {{ messages.total }}</p>
+    <h2>
+      <span style="padding-right: 40px;">
+        User: <strong>{{ user?.userId }}</strong>
+      </span>
+    </h2>
+    <div>Add your message:</div>
+    <input v-model="newMessage" placeholder="message">
+    <button @click="addMessage">
+      Add message
+    </button>
+    <h3>Total: {{ messages.total }}</h3>
     <p v-for="message in messages.data" :key="message.id">
       {{ message.id }}: {{ message.text }}
     </p>
-    <button @click="logout">
-      Logout
-    </button>
   </div>
 </template>
