@@ -1,5 +1,5 @@
 import type { Socket } from 'socket.io-client'
-import type { Messages } from './fixtures/socket.io/feathers-api/src/services/messages/messages.class'
+import type { Message } from './fixtures/socket.io/feathers-api/src/services/messages/messages.schema'
 import { fileURLToPath } from 'node:url'
 import socketio from '@feathersjs/socketio-client'
 import { setup } from '@nuxt/test-utils/e2e'
@@ -48,6 +48,6 @@ describe('socket.io', async () => {
       new Promise(resolve => (feathersClient.io as Socket).on('messages created', resolve)),
       feathersClient.service('messages').create({ text: 'Hello' }),
     ])
-    expect((received as Messages)?.id).toBe(created?.id)
+    expect((received as Message)?.id).toBe(created?.id)
   })
 })

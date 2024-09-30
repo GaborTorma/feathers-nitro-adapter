@@ -1,4 +1,6 @@
 /* eslint-disable ts/no-unsafe-assignment */
+
+import type { MessageData } from './fixtures/express/feathers-api/src/services/messages/messages.schema'
 import { fileURLToPath } from 'node:url'
 import { $fetch, setup } from '@nuxt/test-utils/e2e'
 import { describe, expect, it } from 'vitest'
@@ -22,7 +24,7 @@ describe('express', async () => {
   })
 
   it('get messages with $fetch', async () => {
-    const messages: Array<any> = await $fetch('/api/messages')
+    const messages: Array<MessageData> = await $fetch('/api/messages')
     expect(messages.length).greaterThan(1)
   })
 
