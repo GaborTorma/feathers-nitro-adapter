@@ -1,5 +1,7 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/client.test.html
 
+import type { AxiosError } from 'axios'
+import type { HttpError } from 'http-errors'
 import type { User, UserData } from '../src/client'
 import assert from 'node:assert'
 import rest from '@feathersjs/rest-client'
@@ -23,6 +25,21 @@ describe('application client tests', () => {
 
   it('initialized the client', () => {
     assert.ok(client)
+  })
+
+  it('shows a 401 error for Not authenticated', async () => {
+    try {
+      await axios.get(`${appUrl}/messages`, {
+        responseType: 'json',
+      })
+      assert.fail('should never get here')
+    }
+    catch (error) {
+      const { response } = error as AxiosError<HttpError>
+      assert.strictEqual(response?.status, 401)
+      assert.strictEqual(response?.data?.code, 401)
+      assert.strictEqual(response?.data?.name, 'NotAuthenticated')
+    }
   })
 
   it('creates and authenticates a user with userId and password', async () => {
