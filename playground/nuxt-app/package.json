@@ -13,18 +13,20 @@
   "dependencies": {
     "@feathersjs/authentication-client": "^5.0.30",
     "@feathersjs/feathers": "^5.0.30",
+    "@feathersjs/rest-client": "^5.0.30",
     "@feathersjs/socketio-client": "^5.0.30",
-    "@pinia/nuxt": "^0.5.4",
+    "@pinia/nuxt": "^0.5.5",
     "feathers-api": "workspace:^",
+    "feathers-pinia": "^4.5.4",
     "nuxt": "^3.13.2",
     "nuxt-feathers-pinia": "^0.1.0",
-    "pinia": "^2.2.2",
+    "pinia": "^2.2.3",
     "socket.io-client": "^4.8.0",
     "vue": "^3.5.10",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@gabortorma/nuxt-eslint-layer": "^0.2.3",
+    "@gabortorma/nuxt-eslint-layer": "^0.2.4",
     "ofetch": "^1.4.0"
   }
 }

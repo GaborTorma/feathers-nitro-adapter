@@ -2,8 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
 
+  extends: [
+    '@gabortorma/nuxt-eslint-layer',
+  ],
+
   modules: [
-    '@nuxt/eslint',
     '@pinia/nuxt',
     'nuxt-feathers-pinia',
   ],
@@ -13,13 +16,6 @@ export default defineNuxtConfig({
   nitro: {
     experimental: {
       websocket: true,
-    },
-  },
-
-  eslint: {
-    checker: true,
-    config: {
-      standalone: false,
     },
   },
 
