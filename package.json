@@ -41,7 +41,7 @@
     "prepack": "unbuild",
     "dev:nuxt": "pnpm --filter nuxt-app dev",
     "dev:api": "pnpm --filter feathers-api dev",
-    "prerelease": "nr test:types && nr lint && nr test",
+    "prerelease": "nr test:types && nr lint && nr test:all",
     "release": "dotenv release-it",
     "lint": "eslint . && nr -r lint",
     "lint:fix": "eslint . --fix && nr -r lint:fix",
