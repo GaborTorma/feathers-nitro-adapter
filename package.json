@@ -13,9 +13,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "stackblitz": {
-    "startCommand": "nr dev:nuxt"
-  },
   "keywords": [
     "nuxt",
     "nitro",
