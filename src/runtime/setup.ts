@@ -4,6 +4,7 @@ import type { NitroApp } from 'nitropack'
 declare module '@feathersjs/feathers/lib/declarations' {
   interface Application<Services, Settings> {
     _isSetupStarted?: boolean
+    nitroApp?: NitroApp
   }
 }
 
@@ -17,6 +18,7 @@ declare module 'nitropack' {
 export async function setup(nitroApp: NitroApp, feathersApp: Application) {
   if (!feathersApp._isSetup && !feathersApp._isSetupStarted) {
     feathersApp._isSetupStarted = true
+    feathersApp.nitroApp = nitroApp
 
     await nitroApp.hooks.callHook('feathers:beforeSetup', feathersApp)
 

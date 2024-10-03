@@ -28,7 +28,7 @@ export function createFeathersSocketIoAdapterNitroPlugin(feathersApp: FeathersAp
       const io = app.io as SocketServer
       io.bind(new EngineServer())
 
-      // @ts-expect-error private method
+      // @ts-expect-error private property
       // eslint-disable-next-line ts/no-unsafe-argument
       nitroApp.router.use(io._path, defineEventHandler({
         handler(event) {
@@ -55,6 +55,7 @@ export function createFeathersSocketIoAdapterNitroPlugin(feathersApp: FeathersAp
         },
       }))
     })
+
     void setup(nitroApp, feathersApp) // TODO: make async in Nitro v3
   })
 }
