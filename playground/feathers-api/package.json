@@ -24,7 +24,7 @@
     "framework": "express",
     "transports": [
       "rest",
-      "websocket"
+      "websockets"
     ],
     "schema": "typebox"
   },

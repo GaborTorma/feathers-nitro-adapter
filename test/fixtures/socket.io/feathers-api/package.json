@@ -5,10 +5,8 @@
   "feathers": {
     "language": "ts",
     "packager": "pnpm",
-    "framework": "socket.io",
     "transports": [
-      "rest",
-      "websocket"
+      "websockets"
     ],
     "schema": "typebox"
   }
