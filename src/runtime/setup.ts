@@ -17,8 +17,13 @@ declare module 'nitropack' {
 export async function setup(nitroApp: NitroApp, feathersApp: Application) {
   if (!feathersApp._isSetup && !feathersApp._isSetupStarted) {
     feathersApp._isSetupStarted = true
+
     await nitroApp.hooks.callHook('feathers:beforeSetup', feathersApp)
+
     await feathersApp.setup()
+
+    nitroApp.hooks.hook('close', async () => feathersApp.teardown())
+
     await nitroApp.hooks.callHook('feathers:afterSetup', feathersApp)
   }
 }

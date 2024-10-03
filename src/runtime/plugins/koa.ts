@@ -14,19 +14,21 @@ function koaPrefixRemoverHandler(app: FeathersKoaApplication, prefix: string): K
 
 export function createFeathersKoaAdapterNitroPlugin(feathersApp: FeathersKoaApplication, path: string = '/api'): NitroAppPlugin {
   return defineNitroPlugin((nitroApp: NitroApp) => {
-    void setup(nitroApp, feathersApp) // TODO: make async in Nitro v3
+    nitroApp.hooks.hook('feathers:afterSetup', async () => {
+      const koaHandler = koaPrefixRemoverHandler(feathersApp, path)
 
-    const koaHandler = koaPrefixRemoverHandler(feathersApp, path)
+      const handler = eventHandler(async (event) => {
+        return callNodeListener(
+          koaHandler,
+          event.node.req,
+          event.node.res,
+        )
+      })
 
-    const handler = eventHandler(async (event) => {
-      return callNodeListener(
-        koaHandler,
-        event.node.req,
-        event.node.res,
-      )
+      nitroApp.router.use(path, handler)
+      nitroApp.router.use(`${path}/**`, handler)
     })
 
-    nitroApp.router.use(path, handler)
-    nitroApp.router.use(`${path}/**`, handler)
+    void setup(nitroApp, feathersApp) // TODO: make async in Nitro v3
   })
 }

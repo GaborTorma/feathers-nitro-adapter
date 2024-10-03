@@ -4,9 +4,7 @@ import configuration from '@feathersjs/configuration'
 import feathersExpress, { cors, errorHandler, json, notFound, parseAuthentication, rest, serveStatic, urlencoded } from '@feathersjs/express'
 import { feathers } from '@feathersjs/feathers'
 import socketio from '@feathersjs/socketio'
-import { Server as Engine } from 'engine.io'
 
-import _express from 'express'
 import { configurationValidator } from './configuration'
 import { logError } from './hooks/log-error'
 import { logger } from './logger'
@@ -15,11 +13,7 @@ import { authentication } from './authentication'
 import { dummy } from './dummy'
 import { services } from './services/index' */
 
-export const express = _express()
-
-export const app: ExpressApplication = feathersExpress(feathers(), express)
-
-export const engine = new Engine()
+export const app: ExpressApplication = feathersExpress(feathers())
 
 // Load app configuration
 app.configure(configuration(configurationValidator))
@@ -35,9 +29,6 @@ app.configure(
   socketio({
     transports: ['websocket'],
     cors: { origin: app.get('origins') },
-  }, (io) => {
-    io.bind(engine)
-    io.on('connection', () => console.log('io connection'))
   }),
 )
 

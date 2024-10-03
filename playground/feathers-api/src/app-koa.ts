@@ -6,8 +6,6 @@ import { feathers } from '@feathersjs/feathers'
 import { bodyParser, errorHandler, koa as feathersKoa, parseAuthentication, rest, serveStatic } from '@feathersjs/koa'
 import socketio from '@feathersjs/socketio'
 
-import { Server as Engine } from 'engine.io'
-import Koa from 'koa'
 import { authentication } from './authentication'
 import { channels } from './channels'
 import { configurationValidator } from './configuration'
@@ -16,11 +14,7 @@ import { logError } from './hooks/log-error'
 
 import { services } from './services/index'
 
-export const koa = new Koa()
-
-export const app: KoaApplication = feathersKoa(feathers(), koa)
-
-export const engine = new Engine()
+export const app: KoaApplication = feathersKoa(feathers())
 
 // Load app configuration
 app.configure(configuration(configurationValidator))
@@ -38,9 +32,6 @@ app.configure(
   socketio({
     transports: ['websocket'],
     cors: { origin: app.get('origins') },
-  }, (io) => {
-    io.bind(engine)
-    io.on('connection', () => console.log('io connection'))
   }),
 )
 app.configure(authentication)

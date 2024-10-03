@@ -24,21 +24,9 @@ Create a new nitro plugin file in `server/plugins` folder:
 ```ts
 // server/plugins/feathers-express.ts
 import { createFeathersExpressAdapterNitroPlugin } from '@gabortorma/feathers-nitro-adapter'
-import { app, express } from 'feathers-api/src/app' // import your feathers app from workspace
+import { app } from 'feathers-api/src/app' // import your feathers app from workspace
 
-export default createFeathersExpressAdapterNitroPlugin(app, express)
-```
-
-You need to create own express server in your `feathers-api/src/app.ts`:
-
-```ts
-import feathersExpress from '@feathersjs/express'
-import { feathers } from '@feathersjs/feathers'
-import _express from 'express'
-
-export const express = _express()
-
-export const app: Application = feathersExpress(feathers(), express)
+export default createFeathersExpressAdapterNitroPlugin(app)
 ```
 
 See [Express fixture](./test/fixtures/express/) in test cases.
@@ -60,30 +48,9 @@ See [Koa fixture](./test/fixtures/koa/) in test cases.
 ```ts
 // server/plugins/feathers-socket.io.ts
 import { createFeathersSocketIoAdapterNitroPlugin } from '@gabortorma/feathers-nitro-adapter'
-import { app, engine } from 'feathers-api/src/app'
+import { app } from 'feathers-api/src/app'
 
-export default createFeathersSocketIoAdapterNitroPlugin(app, engine)
-```
-
-You need to create own engine server in your `feathers-api/src/app.ts`:
-
-```ts
-import type { Application } from './declarations'
-import { feathers } from '@feathersjs/feathers'
-import socketio from '@feathersjs/socketio'
-import { Server as Engine } from 'engine.io'
-
-export const app: Application = feathers()
-
-export const engine = new Engine()
-
-app.configure(
-  socketio({
-    transports: ['websocket'],
-  }, (io) => {
-    io.bind(engine) // You need to bind the engine server
-  }),
-)
+export default createFeathersSocketIoAdapterNitroPlugin(app)
 ```
 
 See [Socket.io fixture](./test/fixtures/socket.io/) in test cases.

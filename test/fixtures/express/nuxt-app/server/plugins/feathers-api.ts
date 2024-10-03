@@ -1,4 +1,4 @@
 import { createFeathersExpressAdapterNitroPlugin } from '../../../../../../src/runtime/plugins/express'
-import { app, express } from '../../../feathers-api/src/app'
+import { app } from '../../../feathers-api/src/app'
 
-export default createFeathersExpressAdapterNitroPlugin(app, express)
+export default createFeathersExpressAdapterNitroPlugin(app)
