@@ -17,6 +17,9 @@ importers:
       '@feathersjs/koa':
         specifier: ^5.0.30
         version: 5.0.30(typescript@5.6.2)
+      '@feathersjs/socketio':
+        specifier: ^5.0.30
+        version: 5.0.30
       engine.io:
         specifier: ^6.6.1
         version: 6.6.1
