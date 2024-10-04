@@ -12,7 +12,7 @@ Nitro adapter plugin for FeathersJS API
 ## Install
 
 ```bash
-pnpm install add -D @gabortorma/feathers-nitro-adapter
+pnpm install -D @gabortorma/feathers-nitro-adapter
 ```
 
 ## Usage in Nuxt v3
