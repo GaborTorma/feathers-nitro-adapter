@@ -6,6 +6,10 @@ export default defineNuxtConfig({
     '@gabortorma/nuxt-eslint-layer',
   ],
 
+  imports: {
+    autoImport: true,
+  },
+
   modules: [
     '@pinia/nuxt',
     'nuxt-feathers-pinia',
