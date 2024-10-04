@@ -22,39 +22,43 @@ interface Peer<Context> {
   ctx: Context
 }
 
+export async function createSocketIoRouter(feathersApp: FeathersApplication) {
+  if (feathersApp.nitroApp) {
+    const io = feathersApp.io as SocketServer
+    io.bind(new EngineServer())
+
+    // @ts-expect-error private property
+    // eslint-disable-next-line ts/no-unsafe-argument
+    feathersApp.nitroApp.router.use(io._path, defineEventHandler({
+      handler(event) {
+        io.engine.handleRequest(event.node.req as EngineRequest, event.node.res)
+        event._handled = true
+      },
+      websocket: {
+        open(peer: Peer<NodeContext<NodePeer>>) {
+          const nodeContext = peer.ctx.node
+
+          const req = nodeContext.req
+
+          // @ts-expect-error private method
+          // eslint-disable-next-line ts/no-unsafe-call
+          io.engine.prepare(req)
+
+          const rawSocket = nodeContext.req.socket
+          const websocket = nodeContext.ws
+
+          // @ts-expect-error private method
+          // eslint-disable-next-line ts/no-unsafe-call
+          io.engine.onWebSocket(req, rawSocket, websocket)
+        },
+      },
+    }))
+  }
+}
+
 export function createFeathersSocketIoAdapterNitroPlugin(feathersApp: FeathersApplication): NitroAppPlugin {
   return defineNitroPlugin((nitroApp: NitroApp) => {
-    nitroApp.hooks.hook('feathers:afterSetup', async (app: FeathersApplication) => {
-      const io = app.io as SocketServer
-      io.bind(new EngineServer())
-
-      // @ts-expect-error private property
-      // eslint-disable-next-line ts/no-unsafe-argument
-      nitroApp.router.use(io._path, defineEventHandler({
-        handler(event) {
-          io.engine.handleRequest(event.node.req as EngineRequest, event.node.res)
-          event._handled = true
-        },
-        websocket: {
-          open(peer: Peer<NodeContext<NodePeer>>) {
-            const nodeContext = peer.ctx.node
-
-            const req = nodeContext.req
-
-            // @ts-expect-error private method
-            // eslint-disable-next-line ts/no-unsafe-call
-            io.engine.prepare(req)
-
-            const rawSocket = nodeContext.req.socket
-            const websocket = nodeContext.ws
-
-            // @ts-expect-error private method
-            // eslint-disable-next-line ts/no-unsafe-call
-            io.engine.onWebSocket(req, rawSocket, websocket)
-          },
-        },
-      }))
-    })
+    nitroApp.hooks.hook('feathers:afterSetup', createSocketIoRouter)
 
     void setup(nitroApp, feathersApp) // TODO: make async in Nitro v3
   })

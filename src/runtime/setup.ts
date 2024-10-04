@@ -24,6 +24,8 @@ export async function setup(nitroApp: NitroApp, feathersApp: Application) {
 
     await feathersApp.setup()
 
+    feathersApp._isSetupStarted = false
+
     nitroApp.hooks.hook('close', async () => feathersApp.teardown())
 
     await nitroApp.hooks.callHook('feathers:afterSetup', feathersApp)
