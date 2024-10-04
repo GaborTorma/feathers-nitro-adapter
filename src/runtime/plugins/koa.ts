@@ -1,5 +1,6 @@
 import type { Application as FeathersKoaApplication } from '@feathersjs/koa'
 import type { NitroApp, NitroAppPlugin } from 'nitropack'
+import { eventHandler } from 'h3'
 import { defineNitroPlugin } from 'nitropack/dist/runtime/plugin'
 import { setup } from '../setup'
 
