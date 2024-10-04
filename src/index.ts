@@ -1,2 +1,2 @@
 export * from './runtime/plugins'
-export {} from './runtime/setup'
+export * from './runtime/setup'
