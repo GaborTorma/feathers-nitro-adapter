@@ -4,7 +4,7 @@ import express, { type Application as ExpressApplication } from 'express'
 import { defineNitroPlugin } from 'nitropack/dist/runtime/plugin'
 import { setup } from '../setup'
 
-export function createExpressRouter(feathersApp: FeathersExpressApplication, path: string) {
+export function createExpressRouter(feathersApp: FeathersExpressApplication, path: string = '/api') {
   if (feathersApp.nitroApp) {
     const api = express()
     api.use(path, feathersApp as any as ExpressApplication)
@@ -16,7 +16,7 @@ export function createExpressRouter(feathersApp: FeathersExpressApplication, pat
   }
 }
 
-export function createFeathersExpressAdapterNitroPlugin(feathersApp: FeathersExpressApplication, path: string = '/api'): NitroAppPlugin {
+export function createFeathersExpressAdapterNitroPlugin(feathersApp: FeathersExpressApplication, path?: string): NitroAppPlugin {
   return defineNitroPlugin((nitroApp: NitroApp) => {
     nitroApp.hooks.hook('feathers:afterSetup', async () => {
       createExpressRouter(feathersApp, path)

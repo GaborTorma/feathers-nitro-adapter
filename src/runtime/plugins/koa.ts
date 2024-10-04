@@ -13,7 +13,7 @@ function koaPrefixRemoverHandler(feathersApp: FeathersKoaApplication, prefix: st
   }
 }
 
-export function createKoaRouter(feathersApp: FeathersKoaApplication, path: string) {
+export function createKoaRouter(feathersApp: FeathersKoaApplication, path: string = '/api') {
   if (feathersApp.nitroApp) {
     const koaHandler = koaPrefixRemoverHandler(feathersApp, path)
 
@@ -30,7 +30,7 @@ export function createKoaRouter(feathersApp: FeathersKoaApplication, path: strin
   }
 }
 
-export function createFeathersKoaAdapterNitroPlugin(feathersApp: FeathersKoaApplication, path: string = '/api'): NitroAppPlugin {
+export function createFeathersKoaAdapterNitroPlugin(feathersApp: FeathersKoaApplication, path?: string): NitroAppPlugin {
   return defineNitroPlugin((nitroApp: NitroApp) => {
     nitroApp.hooks.hook('feathers:afterSetup', async () => {
       createKoaRouter(feathersApp, path)
