@@ -1,2 +1,3 @@
+imports.autoImport = false
 typescript.tsConfig.include.0 = ../.release-it.ts
 typescript.tsConfig.exclude.0 = ../playground

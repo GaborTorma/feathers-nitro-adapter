@@ -1,6 +1,7 @@
 import type { Application as FeathersExpressApplication } from '@feathersjs/express'
 import type { NitroApp, NitroAppPlugin } from 'nitropack'
 import express, { type Application as ExpressApplication } from 'express'
+import { fromNodeMiddleware } from 'h3'
 import { defineNitroPlugin } from 'nitropack/dist/runtime/plugin'
 import { setup } from '../setup'
 

@@ -4,6 +4,7 @@ import type { IncomingMessage } from 'node:http'
 import type { Server as SocketServer } from 'socket.io'
 import {} from '@feathersjs/socketio' // need for declaration merging
 import { Server as EngineServer } from 'engine.io'
+import { defineEventHandler } from 'h3'
 import { defineNitroPlugin } from 'nitropack/dist/runtime/plugin'
 import { setup } from '../setup'
 
