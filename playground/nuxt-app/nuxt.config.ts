@@ -23,5 +23,13 @@ export default defineNuxtConfig({
     },
   },
 
+  vite: {
+    optimizeDeps: {
+      include: [
+        'feathers-pinia',
+      ],
+    },
+  },
+
   devtools: { enabled: true },
 })
