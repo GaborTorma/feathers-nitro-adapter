@@ -59,7 +59,7 @@
     "@feathersjs/socketio": "^5.0.30",
     "engine.io": "^6.6.1",
     "express": "^4.21.0",
-    "h3": "^1.12.0",
+    "h3": "^1.13.0",
     "koa": "^2.15.3",
     "nitropack": "^2.9.7"
   },
@@ -67,7 +67,7 @@
     "@antfu/ni": "^0.23.0",
     "@gabortorma/mwm": "^0.8.12",
     "@gabortorma/nuxt-eslint-layer": "^0.2.4",
-    "@nuxt/devtools": "^1.5.1",
+    "@nuxt/devtools": "^1.5.2",
     "@nuxt/schema": "^3.13.2",
     "@nuxt/test-utils": "^3.14.2",
     "@types/koa": "^2.15.0",
@@ -75,10 +75,10 @@
     "dotenv-cli": "^7.4.2",
     "nuxi": "^3.14.0",
     "nuxt": "^3.13.2",
-    "release-it": "^17.6.0",
+    "release-it": "^17.7.0",
     "typescript": "^5.6.2",
     "unbuild": "^2.0.0",
-    "vitest": "^2.1.1",
+    "vitest": "^2.1.2",
     "vue-tsc": "^2.1.6"
   }
 }
