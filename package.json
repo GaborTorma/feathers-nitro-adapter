@@ -2,7 +2,7 @@
   "name": "@gabortorma/feathers-nitro-adapter",
   "type": "module",
   "version": "0.2.11",
-  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
+  "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca",
   "description": "Nitro adapter plugin for FeathersJS API",
   "author": "GaborTorma",
   "license": "MIT",
@@ -59,8 +59,7 @@
     "@feathersjs/socketio": "^5.0.30",
     "engine.io": "^6.6.1",
     "express": "^4.21.0",
-    "h3": "^1.13.0",
-    "koa": "^2.15.3",
+    "h3": "1.12.0",
     "nitropack": "^2.9.7"
   },
   "devDependencies": {
@@ -80,5 +79,12 @@
     "unbuild": "^2.0.0",
     "vitest": "^2.1.2",
     "vue-tsc": "^2.1.6"
+  },
+  "pnpm": {
+    "updateConfig": {
+      "ignoreDependencies": [
+        "h3"
+      ]
+    }
   }
 }
