@@ -5,7 +5,7 @@ import { fromNodeMiddleware } from 'h3'
 import { defineNitroPlugin } from 'nitropack/dist/runtime/plugin'
 import { setup } from '../setup'
 
-export function createExpressRouter(feathersApp: FeathersExpressApplication, path: string = '/api') {
+export function createExpressRouter(feathersApp: FeathersExpressApplication, path: string = '/feathers') {
   if (feathersApp.nitroApp) {
     const api = express()
     api.use(path, feathersApp as any as ExpressApplication)

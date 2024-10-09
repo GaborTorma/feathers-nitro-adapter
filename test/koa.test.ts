@@ -17,12 +17,12 @@ describe('koa', async () => {
   })
 
   it('renders the static feather-api page', async () => {
-    const html = await $fetch('/api')
+    const html = await $fetch('/feathers')
     expect(html).toContain('feathers-api')
   })
 
   it('get messages with $fetch', async () => {
-    const messages: Array<MessageData> = await $fetch('/api/messages')
+    const messages: Array<MessageData> = await $fetch('/feathers/messages')
     expect(messages.length).greaterThan(1)
   })
 })

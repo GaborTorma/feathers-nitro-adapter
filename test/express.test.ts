@@ -19,17 +19,17 @@ describe('express', async () => {
   })
 
   it('renders the static feather-api page', async () => {
-    const html = await $fetch('/api')
+    const html = await $fetch('/feathers')
     expect(html).toContain('feathers-api')
   })
 
   it('get messages with $fetch', async () => {
-    const messages: Array<MessageData> = await $fetch('/api/messages')
+    const messages: Array<MessageData> = await $fetch('/feathers/messages')
     expect(messages.length).greaterThan(1)
   })
 
   /* it('get messages with featherClient', async () => {
-    const connection = rest('/api').fetch($fetch)
+    const connection = rest('/feathers').fetch($fetch)
     const feathersClient = createClient(connection)
     const messages = await feathersClient.service('messages').find({query: {}})
     expect(messages.length).toBe(2)

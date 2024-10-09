@@ -13,7 +13,7 @@ function koaPrefixRemoverHandler(feathersApp: FeathersKoaApplication, prefix: st
   }
 }
 
-export function createKoaRouter(feathersApp: FeathersKoaApplication, path: string = '/api') {
+export function createKoaRouter(feathersApp: FeathersKoaApplication, path: string = '/feathers') {
   if (feathersApp.nitroApp) {
     const koaHandler = koaPrefixRemoverHandler(feathersApp, path)
 
