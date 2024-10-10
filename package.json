@@ -30,6 +30,21 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./router": {
+      "types": "./dist/runtime/routers/index.d.ts",
+      "import": "./dist/runtime/routers/index.mjs",
+      "require": "./dist/runtime/routers/index.cjs"
+    },
+    "./plugins": {
+      "types": "./dist/runtime/plugins/index.d.ts",
+      "import": "./dist/runtime/plugins/index.mjs",
+      "require": "./dist/runtime/plugins/index.cjs"
+    },
+    "./setup": {
+      "types": "./dist/runtime/setup.d.ts",
+      "import": "./dist/runtime/setup.mjs",
+      "require": "./dist/runtime/setup.cjs"
     }
   },
   "main": "./dist/index.cjs",
