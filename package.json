@@ -31,7 +31,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./router": {
+    "./routers": {
       "types": "./dist/runtime/routers/index.d.ts",
       "import": "./dist/runtime/routers/index.mjs",
       "require": "./dist/runtime/routers/index.cjs"
