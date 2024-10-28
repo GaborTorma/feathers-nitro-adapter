@@ -4,10 +4,14 @@ import type { AxiosError } from 'axios'
 import type { HttpError } from 'http-errors'
 import type { User, UserData } from '../src/client'
 import assert from 'node:assert'
+import { errorHandler, notFound } from '@feathersjs/express'
 import rest from '@feathersjs/rest-client'
 import axios from 'axios'
-import { app } from '../src/app-koa'
+import { app } from '../src/app-express'
 import { createClient } from '../src/client'
+
+app.use(notFound())
+app.use(errorHandler())
 
 const port = app.get('port')
 const appUrl = `http://${app.get('host')}:${port}`
@@ -29,7 +33,7 @@ describe('application client tests', () => {
 
   it('shows a 401 error for Not authenticated', async () => {
     try {
-      await axios.get(`${appUrl}/messages`, {
+      await axios.get(`${appUrl}/users`, {
         responseType: 'json',
       })
       assert.fail('should never get here')

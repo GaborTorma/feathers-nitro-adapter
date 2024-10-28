@@ -1,7 +1,7 @@
 // For more information about this file see https://dove.feathersjs.com/guides/cli/service.test.html
 
 import assert from 'node:assert'
-import { app } from '../../../src/app-koa'
+import { app } from '../../../src/app-express'
 
 describe('users service', () => {
   it('registered the service', () => {

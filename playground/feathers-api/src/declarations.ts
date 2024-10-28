@@ -19,7 +19,7 @@ export type ExpressApplication = FeathersExpressApplication<ServiceTypes, Config
 export type KoaApplication = FeathersKoaApplication<ServiceTypes, Configuration>
 
 // Select current adapter
-export type Application = KoaApplication
+export type Application = ExpressApplication
 
 // The context for hook functions - can be typed with a service class
 export type HookContext<S = any> = FeathersHookContext<ExpressApplication | KoaApplication, S>

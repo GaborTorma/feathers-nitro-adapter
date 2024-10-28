@@ -41,6 +41,11 @@
       "import": "./dist/runtime/plugins/index.mjs",
       "require": "./dist/runtime/plugins/index.cjs"
     },
+    "./handlers": {
+      "types": "./dist/runtime/handlers/index.d.ts",
+      "import": "./dist/runtime/handlers/index.mjs",
+      "require": "./dist/runtime/handlers/index.cjs"
+    },
     "./setup": {
       "types": "./dist/runtime/setup.d.ts",
       "import": "./dist/runtime/setup.mjs",
@@ -68,6 +73,7 @@
     "prepare": "nuxi prepare && nitro prepare"
   },
   "dependencies": {
+    "@feathersjs/errors": "^5.0.30",
     "@feathersjs/express": "^5.0.30",
     "@feathersjs/feathers": "^5.0.30",
     "@feathersjs/koa": "^5.0.30",

@@ -1,5 +1,6 @@
 import type { Application as FeathersKoaApplication } from '@feathersjs/koa'
 import { callNodeListener, eventHandler } from 'h3'
+import { koaErrorHandler } from '../handlers/koa'
 
 type KoaHandler = ReturnType<FeathersKoaApplication['callback']>
 
@@ -12,6 +13,8 @@ function koaPrefixRemoverHandler(feathersApp: FeathersKoaApplication, prefix: st
 
 export function createKoaRouter(feathersApp: FeathersKoaApplication, path: string = '/feathers') {
   if (feathersApp.nitroApp) {
+    feathersApp.configure(koaErrorHandler)
+
     const koaHandler = koaPrefixRemoverHandler(feathersApp, path)
 
     const handler = eventHandler(async (event) => {

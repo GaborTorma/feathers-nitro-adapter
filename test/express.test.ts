@@ -3,9 +3,7 @@
 import type { MessageData } from './fixtures/express/feathers-api/src/services/messages/messages.schema'
 import { fileURLToPath } from 'node:url'
 import { $fetch, setup } from '@nuxt/test-utils/e2e'
-import { describe, expect, it } from 'vitest'
-/* import { createClient, type ClientApplication } from './fixtures/express/feathers-api/src/client'
-import rest from '@feathersjs/rest-client' */
+import { assert, describe, expect, it } from 'vitest'
 
 describe('express', async () => {
   await setup({
@@ -28,11 +26,16 @@ describe('express', async () => {
     expect(messages.length).greaterThan(1)
   })
 
-  /* it('get messages with featherClient', async () => {
-    const connection = rest('/feathers').fetch($fetch)
-    const feathersClient = createClient(connection)
-    const messages = await feathersClient.service('messages').find({query: {}})
-    expect(messages.length).toBe(2)
-    feathersClient.teardown()
-  }) */
+  it('get 404 message from api', async () => {
+    try {
+      await $fetch('/feathers/no-express-path')
+      assert.fail('Should never catch this')
+    }
+    catch (error: any) {
+      // eslint-disable-next-line ts/no-unsafe-member-access
+      expect(error.response.status).toBe(404)
+      // eslint-disable-next-line ts/no-unsafe-member-access
+      expect(error.response.statusText).toBe('[feathers] Page not found: /no-express-path')
+    }
+  })
 })

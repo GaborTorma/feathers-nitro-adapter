@@ -3,7 +3,7 @@
 import type { MessageData } from './fixtures/koa/feathers-api/src/services/messages/messages.schema'
 import { fileURLToPath } from 'node:url'
 import { $fetch, setup } from '@nuxt/test-utils/e2e'
-import { describe, expect, it } from 'vitest'
+import { assert, describe, expect, it } from 'vitest'
 
 describe('koa', async () => {
   await setup({
@@ -24,5 +24,18 @@ describe('koa', async () => {
   it('get messages with $fetch', async () => {
     const messages: Array<MessageData> = await $fetch('/feathers/messages')
     expect(messages.length).greaterThan(1)
+  })
+
+  it('get 404 message from api', async () => {
+    try {
+      await $fetch('/feathers/no-koa-path')
+      assert.fail('Should never catch this')
+    }
+    catch (error: any) {
+      // eslint-disable-next-line ts/no-unsafe-member-access
+      expect(error.response.status).toBe(404)
+      // eslint-disable-next-line ts/no-unsafe-member-access
+      expect(error.response.statusText).toBe('[feathers] Page not found: /no-koa-path')
+    }
   })
 })

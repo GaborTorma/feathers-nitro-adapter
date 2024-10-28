@@ -4,8 +4,12 @@ import type { AxiosError } from 'axios'
 import type { HttpError } from 'http-errors'
 import type { Server } from 'node:http'
 import assert from 'node:assert'
+import { errorHandler, notFound } from '@feathersjs/express'
 import axios from 'axios'
-import { app } from '../src/app-koa'
+import { app } from '../src/app-express'
+
+app.use(notFound())
+app.use(errorHandler())
 
 const port = app.get('port')
 const appUrl = `http://${app.get('host')}:${port}`
