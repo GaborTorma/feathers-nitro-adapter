@@ -16,21 +16,10 @@ export function koaErrorHandler(app: Application) {
   })
 
   async function errorHandler(ctx: FeathersKoaContext, next: () => Promise<any>) {
-    // try {
     await next()
 
-    if (ctx.body === undefined) {
+    if (ctx.body === undefined)
       throw new NotFound(`Page not found: ${ctx.path}`)
-    }
-    /* }
-    catch (error) {
-      ctx.response.status = error instanceof FeathersError ? error.code : 500
-      ctx.body = typeof (error as FeathersError).toJSON === 'function'
-        ? (error as FeathersError).toJSON()
-        : { message: (error as Error).message }
-
-      throw error
-    } */
   }
 
   app.use(errorHandler)
