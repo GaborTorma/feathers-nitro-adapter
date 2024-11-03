@@ -7,15 +7,18 @@ import ioc from 'socket.io-client'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { type ClientApplication, createClient } from './fixtures/socket.io/feathers-api/src/client'
 
-describe('socket.io', async () => {
+describe('socket.io-path', async () => {
   await setup({
-    rootDir: fileURLToPath(new URL('./fixtures/socket.io/nuxt-app', import.meta.url)),
+    rootDir: fileURLToPath(new URL('./fixtures/socket.io-path/nuxt-app', import.meta.url)),
   })
 
   let feathersClient: ClientApplication
 
   beforeAll(() => {
-    const io = ioc(url('/'), { transports: ['websocket'] })
+    const io = ioc(url('/'), {
+      path: '/websocket',
+      transports: ['websocket'],
+    })
     const connection = socketio(io)
     feathersClient = createClient(connection)
   })

@@ -1,0 +1,14 @@
+{
+  "name": "feathers-api",
+  "version": "0.0.0",
+  "private": true,
+  "feathers": {
+    "language": "ts",
+    "packager": "pnpm",
+    "framework": "koa",
+    "transports": [
+      "rest"
+    ],
+    "schema": "typebox"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "feathers-api",
+  "version": "0.0.0",
+  "private": true,
+  "feathers": {
+    "language": "ts",
+    "packager": "pnpm",
+    "transports": [
+      "websockets"
+    ],
+    "schema": "typebox"
+  }
+}
