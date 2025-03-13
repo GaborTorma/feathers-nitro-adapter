@@ -11,23 +11,23 @@
     "test:types": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@feathersjs/authentication-client": "^5.0.31",
-    "@feathersjs/feathers": "^5.0.31",
-    "@feathersjs/rest-client": "^5.0.31",
-    "@feathersjs/socketio-client": "^5.0.31",
-    "@pinia/nuxt": "^0.7.0",
+    "@feathersjs/authentication-client": "^5.0.33",
+    "@feathersjs/feathers": "^5.0.33",
+    "@feathersjs/rest-client": "^5.0.33",
+    "@feathersjs/socketio-client": "^5.0.33",
+    "@pinia/nuxt": "~0.9.0",
     "feathers-api": "workspace:^",
     "feathers-pinia": "^4.5.4",
-    "h3": "1.12.0",
-    "nuxt": "^3.13.2",
+    "h3": "1.15.1",
+    "nuxt": "^3.16.0",
     "nuxt-feathers-pinia": "^0.1.0",
-    "pinia": "^2.2.6",
+    "pinia": "~2.3.1",
     "socket.io-client": "^4.8.1",
-    "vue": "^3.5.12",
-    "vue-router": "^4.4.5"
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@gabortorma/nuxt-eslint-layer": "^0.2.6",
+    "@gabortorma/nuxt-eslint-layer": "^0.5.0",
     "ofetch": "^1.4.1"
   }
 }

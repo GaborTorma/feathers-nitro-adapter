@@ -4,7 +4,7 @@ import type { Application } from '../declarations'
 import { message } from './messages/messages'
 import { user } from './users/users'
 
-export const services = function (app: Application) {
+export function services(app: Application) {
   app.configure(message)
   app.configure(user)
   // All services will be registered here

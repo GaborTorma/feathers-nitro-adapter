@@ -1,5 +1,6 @@
 import type { Application as FeathersExpressApplication } from '@feathersjs/express'
-import express, { type Application as ExpressApplication } from 'express'
+import type { Application as ExpressApplication } from 'express'
+import express from 'express'
 import { fromNodeMiddleware } from 'h3'
 
 export function createExpressRouter(feathersApp: FeathersExpressApplication, path: string = '/feathers') {

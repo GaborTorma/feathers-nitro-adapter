@@ -1,8 +1,8 @@
-import { message } from './messages/messages'
 // For more information about this file see https://dove.feathersjs.com/guides/cli/application.html#configure-functions
 import type { Application } from '../declarations'
+import { message } from './messages/messages'
 
-export const services = function (app: Application) {
+export function services(app: Application) {
   app.configure(message)
   // All services will be registered here
 }

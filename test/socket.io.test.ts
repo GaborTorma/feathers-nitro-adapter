@@ -1,11 +1,12 @@
 import type { Socket } from 'socket.io-client'
+import type { ClientApplication } from './fixtures/socket.io/feathers-api/src/client'
 import type { Message } from './fixtures/socket.io/feathers-api/src/services/messages/messages.schema'
 import { fileURLToPath } from 'node:url'
 import socketio from '@feathersjs/socketio-client'
 import { setup, url } from '@nuxt/test-utils/e2e'
 import ioc from 'socket.io-client'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import { type ClientApplication, createClient } from './fixtures/socket.io/feathers-api/src/client'
+import { createClient } from './fixtures/socket.io/feathers-api/src/client'
 
 describe('socket.io', async () => {
   await setup({

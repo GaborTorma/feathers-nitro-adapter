@@ -2,7 +2,7 @@
   "name": "@gabortorma/feathers-nitro-adapter",
   "type": "module",
   "version": "0.4.4",
-  "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca",
+  "packageManager": "pnpm@10.6.3+sha512.bb45e34d50a9a76e858a95837301bfb6bd6d35aea2c5d52094fa497a467c43f5c440103ce2511e9e0a2f89c3d6071baac3358fc68ac6fb75e2ceb3d2736065e6",
   "description": "Nitro adapter plugin for FeathersJS API",
   "author": "GaborTorma",
   "license": "MIT",
@@ -73,39 +73,39 @@
     "prepare": "nuxi prepare && nitro prepare"
   },
   "dependencies": {
-    "@feathersjs/errors": "^5.0.31",
-    "@feathersjs/express": "^5.0.31",
-    "@feathersjs/feathers": "^5.0.31",
-    "@feathersjs/koa": "^5.0.31",
-    "@feathersjs/socketio": "^5.0.31",
-    "engine.io": "^6.6.2",
-    "express": "^4.21.1",
-    "h3": "1.12.0",
-    "nitropack": "2.9.7"
+    "@feathersjs/errors": "^5.0.33",
+    "@feathersjs/express": "^5.0.33",
+    "@feathersjs/feathers": "^5.0.33",
+    "@feathersjs/koa": "^5.0.33",
+    "@feathersjs/socketio": "^5.0.33",
+    "engine.io": "^6.6.4",
+    "express": "^4.21.2",
+    "h3": "1.15.1",
+    "nitropack": "2.11.6"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.23.0",
+    "@antfu/ni": "^24.1.0",
     "@gabortorma/mwm": "^0.8.12",
-    "@gabortorma/nuxt-eslint-layer": "^0.2.6",
-    "@nuxt/devtools": "^1.6.0",
-    "@nuxt/schema": "^3.13.2",
-    "@nuxt/test-utils": "^3.14.4",
+    "@gabortorma/nuxt-eslint-layer": "^0.5.0",
+    "@nuxt/devtools": "^2.3.0",
+    "@nuxt/schema": "^3.16.0",
+    "@nuxt/test-utils": "^3.17.2",
     "@types/koa": "^2.15.0",
-    "@types/node": "^22.8.7",
-    "dotenv-cli": "^7.4.2",
-    "nuxi": "^3.15.0",
-    "nuxt": "^3.13.2",
-    "release-it": "^17.10.0",
-    "typescript": "^5.6.3",
-    "unbuild": "^2.0.0",
-    "vitest": "^2.1.4",
-    "vue-tsc": "^2.1.10"
+    "@types/node": "^22.13.10",
+    "dotenv-cli": "^8.0.0",
+    "nuxi": "^3.23.0",
+    "nuxt": "^3.16.0",
+    "release-it": "^18.1.2",
+    "typescript": "~5.6.3",
+    "unbuild": "^3.5.0",
+    "vitest": "^3.0.8",
+    "vue-tsc": "^2.2.8"
   },
   "pnpm": {
     "updateConfig": {
       "ignoreDependencies": [
-        "h3",
-        "nitropack"
+        "pinia",
+        "@pinia/nuxt"
       ]
     }
   }
