@@ -12,7 +12,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@pinia/nuxt',
-    'nuxt-feathers-pinia',
   ],
 
   ssr: true,
@@ -20,14 +19,6 @@ export default defineNuxtConfig({
   nitro: {
     experimental: {
       websocket: true,
-    },
-  },
-
-  vite: {
-    optimizeDeps: {
-      include: [
-        'feathers-pinia',
-      ],
     },
   },
 

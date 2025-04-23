@@ -3,8 +3,8 @@ import rest from '@feathersjs/rest-client'
 import socketioClient from '@feathersjs/socketio-client'
 // socket.io imports for the browser
 
+import { createPiniaClient, OFetch } from '@gabortorma/feathers-pinia'
 import { createClient } from 'feathers-api/src/client'
-import { createPiniaClient, OFetch } from 'feathers-pinia'
 
 // rest imports for the server
 import { $fetch } from 'ofetch'

@@ -2,7 +2,7 @@
   "name": "@gabortorma/feathers-nitro-adapter",
   "type": "module",
   "version": "0.5.0",
-  "packageManager": "pnpm@10.6.3+sha512.bb45e34d50a9a76e858a95837301bfb6bd6d35aea2c5d52094fa497a467c43f5c440103ce2511e9e0a2f89c3d6071baac3358fc68ac6fb75e2ceb3d2736065e6",
+  "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f",
   "description": "Nitro adapter plugin for FeathersJS API",
   "author": "GaborTorma",
   "license": "MIT",
@@ -81,31 +81,30 @@
     "engine.io": "^6.6.4",
     "express": "^4.21.2",
     "h3": "1.15.1",
-    "nitropack": "2.11.6"
+    "nitropack": "2.11.9"
   },
   "devDependencies": {
-    "@antfu/ni": "^24.1.0",
+    "@antfu/ni": "^24.3.0",
     "@gabortorma/mwm": "^0.8.12",
-    "@gabortorma/nuxt-eslint-layer": "^0.5.0",
-    "@nuxt/devtools": "^2.3.0",
-    "@nuxt/schema": "^3.16.0",
+    "@gabortorma/nuxt-eslint-layer": "^0.5.1",
+    "@nuxt/devtools": "^2.4.0",
+    "@nuxt/schema": "^3.16.2",
     "@nuxt/test-utils": "^3.17.2",
     "@types/koa": "^2.15.0",
-    "@types/node": "^22.13.10",
+    "@types/node": "^22.14.1",
     "dotenv-cli": "^8.0.0",
-    "nuxi": "^3.23.0",
-    "nuxt": "^3.16.0",
-    "release-it": "^18.1.2",
-    "typescript": "~5.6.3",
+    "nuxi": "^3.25.0",
+    "nuxt": "^3.16.2",
+    "release-it": "^19.0.1",
+    "typescript": "^5.8.3",
     "unbuild": "^3.5.0",
-    "vitest": "^3.0.8",
-    "vue-tsc": "^2.2.8"
+    "vitest": "^3.1.2",
+    "vue-tsc": "^2.2.10"
   },
   "pnpm": {
     "updateConfig": {
       "ignoreDependencies": [
-        "pinia",
-        "@pinia/nuxt"
+        "express"
       ]
     }
   }
